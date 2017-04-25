@@ -30,17 +30,18 @@ namespace PO_V
             string log = textBox.Text;
             string pass = passwordBox1.Password;
 
-            string hash = "x09CZFC34mONzN+VnZsCNkWDGjMq+RU65XSzvzysL3bFh7fKJy49o211MOI5a71C2l6udHaSpklMQd54ntAxKA==";
-            string salt = "Mi2qLPEGlNy3Dl6rEBHAdl2kR7jEH1GdZ5l4j58hFyP6sAA/H7KxZbAYygAb3DFIxpnCclVtjBLcDcRYjgU9lg==";
+            SaltedHash p = new SaltedHash(pass);
 
+            db d = new db();
+            d.Sign_in(log);
+            string hash = d.Hash;
+            string salt = d.Salt;
             if (SaltedHash.Verify(hash, pass, salt))
             {
                 MessageBox.Show("Получилось войти!");
             }
             else
                 label2.Content = "Неверный логин или пароль";
-            db autor = new db();
-
         }
     }
 }

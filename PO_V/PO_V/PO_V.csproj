@@ -62,7 +62,6 @@
     <Compile Include="Sign_up.xaml.cs">
       <DependentUpon>Sign_up.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Validate.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

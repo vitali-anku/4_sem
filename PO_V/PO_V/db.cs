@@ -14,6 +14,9 @@ namespace PO_V
                          Initial Catalog=Kursach;
                          Integrated Security=True";
 
+        public string Hash { get; set; }
+        public string Salt { get; set; }
+
         static SqlConnection conn = new SqlConnection(str);
 
         public void Reg(string login, string name, string email, string salt, string hash)
@@ -37,32 +40,33 @@ namespace PO_V
         public void Sign_in(string login)
         {
             conn.Open();
-            List<String> val = new List<string>();
-
             try
             {
-                SqlDataReader myReader = null;
-                SqlCommand myCommand = new SqlCommand("select login, salt, hash from _user",
-                                                         conn);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    val.Add(myReader.GetString(0));
-                }
+                string zapros = string.Format("Select * from _user where login = @login");
 
-                foreach (string log in val)
+                using (SqlCommand myCommand = new SqlCommand(zapros, conn))
                 {
-                    if (login == log)
+                    myCommand.Parameters.AddWithValue("@login", login);
+                    myCommand.ExecuteNonQuery();
+                    SqlDataReader myReader = myCommand.ExecuteReader();
+                    if (myReader.HasRows)
                     {
-                        MessageBox.Show(login);
+                        while (myReader.Read())
+                        {
+                            Salt = myReader["salt"].ToString();
+                            Hash = myReader["hash"].ToString();
+                        }
                     }
                     else
-                        MessageBox.Show("Неверно введет логин или пароль!");
+                    {
+                        MessageBox.Show("Введен неверный логин или пароль");
+                    }
                 }
             }
-            catch (Exception e)
+
+            catch(Exception e)
             {
-                Console.WriteLine(e.ToString());
+                MessageBox.Show(e.ToString());
             }
 
             conn.Close();
