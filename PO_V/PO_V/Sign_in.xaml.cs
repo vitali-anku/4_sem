@@ -33,7 +33,11 @@ namespace PO_V
             SaltedHash p = new SaltedHash(pass);
 
             db d = new db();
+<<<<<<< HEAD
 
+=======
+            d.Sign_in(log);
+>>>>>>> 96e2c75d653a5f110f863e86845e36c43a822e1d
             string hash = d.Hash;
             string salt = d.Salt;
             if (SaltedHash.Verify(hash, pass, salt))
@@ -43,9 +47,12 @@ namespace PO_V
             else
             {
                 label2.Content = "Неверный логин или пароль";
+<<<<<<< HEAD
                 textBox.Text = "";
                 passwordBox1.Password = "";
             }
+=======
+>>>>>>> 96e2c75d653a5f110f863e86845e36c43a822e1d
         }
     }
 }
