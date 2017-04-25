@@ -38,8 +38,6 @@ namespace PO_V
             string hash = salt.Hash;
             string sal = salt.Salt;
 
-            MessageBox.Show(pass);
-
             try
             {
                 reg.Reg(log, name, email, sal, hash);

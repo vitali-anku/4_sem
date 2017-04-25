@@ -63,12 +63,7 @@ namespace PO_V
                     }
                 }
             }
-
-<<<<<<< HEAD
-            catch (Exception e)
-=======
             catch(Exception e)
->>>>>>> 96e2c75d653a5f110f863e86845e36c43a822e1d
             {
                 MessageBox.Show(e.ToString());
             }
