@@ -12,9 +12,8 @@
         <Label x:Name="label1" Content="Введите пароль:" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Height="26" Width="100"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" TextAlignment="Left"  Height="21" Margin="115,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <PasswordBox Name="passwordBox1" PasswordChar="*" HorizontalAlignment="Left" Margin="115,147,0,0" Height="21" VerticalAlignment="Top" Width="165"/>
-        <Button x:Name="button" Content="Войти" HorizontalAlignment="Left" Margin="115,240,0,0" VerticalAlignment="Top" Width="80" Click="button_Click"/>
-        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="115,260,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" TextAlignment="Left"  Height="21" Margin="115,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <Button x:Name="button" Content="Войти" HorizontalAlignment="Left" Margin="120,240,0,0" VerticalAlignment="Top" Width="80" Click="button_Click"/>
+        <Label x:Name="label2" Foreground="Red" HorizontalAlignment="Left" Margin="75,260,0,0" VerticalAlignment="Top" Width="170" Height="25"/>
 
     </Grid>
 </Page>

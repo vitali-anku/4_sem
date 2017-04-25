@@ -30,13 +30,16 @@ namespace PO_V
             string log = textBox3.Text;
             string email = textBox.Text;
             string name = textBox1.Text;
+            string pass = passwordBox.Password;
 
             db reg = new db();
-            SaltedHash salt = new SaltedHash(passwordBox.ToString());
+            SaltedHash salt = new SaltedHash(pass);
 
             string hash = salt.Hash;
             string sal = salt.Salt;
-            
+
+            MessageBox.Show(pass);
+
             try
             {
                 reg.Reg(log, name, email, sal, hash);

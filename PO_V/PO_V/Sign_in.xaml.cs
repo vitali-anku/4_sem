@@ -28,11 +28,19 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string log = textBox.Text;
-            string pass = passwordBox1.ToString();
+            string pass = passwordBox1.Password;
 
+            string hash = "x09CZFC34mONzN+VnZsCNkWDGjMq+RU65XSzvzysL3bFh7fKJy49o211MOI5a71C2l6udHaSpklMQd54ntAxKA==";
+            string salt = "Mi2qLPEGlNy3Dl6rEBHAdl2kR7jEH1GdZ5l4j58hFyP6sAA/H7KxZbAYygAb3DFIxpnCclVtjBLcDcRYjgU9lg==";
+
+            if (SaltedHash.Verify(hash, pass, salt))
+            {
+                MessageBox.Show("Получилось войти!");
+            }
+            else
+                label2.Content = "Неверный логин или пароль";
             db autor = new db();
 
-            autor.Sign_in(log);
         }
     }
 }
