@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace PO_V
 {
@@ -13,6 +14,8 @@ namespace PO_V
         static string str = @"Data Source=VITALI\SQLSERVER;
                          Initial Catalog=Kursach;
                          Integrated Security=True";
+        bool o = false, i;
+
 
         public string Hash { get; set; }
         public string Salt { get; set; }
@@ -37,9 +40,17 @@ namespace PO_V
             conn.Close();
         }
 
-        public void Sign_in(string login)
+        public bool Sign_in(string login, string pass, Start a)
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            
             try
             {
                 string zapros = string.Format("Select * from _user where login = @login");
@@ -50,25 +61,42 @@ namespace PO_V
                     myCommand.ExecuteNonQuery();
                     SqlDataReader myReader = myCommand.ExecuteReader();
                     if (myReader.HasRows)
-                    {
+                    { 
                         while (myReader.Read())
                         {
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
                         }
+                        if (SaltedHash.Verify(Hash, pass, Salt))
+                        {
+                            NavigationService.GetNavigationService(a);
+                            return o = true;
+                        }
+                        else
+                        {
+                            return o = false;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Введен неверный логин или пароль");
+                        return o = false;
                     }
                 }
+
             }
+
             catch(Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
 
             conn.Close();
+
+            if (o)
+            {
+                i = o;
+            }
+            return i;
         }
     }
 }

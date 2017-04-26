@@ -39,13 +39,13 @@ namespace PO_V
             var hashAttempt = ComputeHash(password, salt);
             return hash == hashAttempt;
         }
-
+         
         static string ComputeHash(string password, string saltBase64)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
-            var saltBytes = Convert.FromBase64String(saltBase64);
+             var saltBytes = Convert.FromBase64String(saltBase64);
             var passwordAndSaltBytes = passwordBytes.Concat(saltBytes).ToArray();
-
+                
             using (var sha512 = SHA512.Create())
             {
                 return Convert.ToBase64String(sha512.ComputeHash(passwordAndSaltBytes));

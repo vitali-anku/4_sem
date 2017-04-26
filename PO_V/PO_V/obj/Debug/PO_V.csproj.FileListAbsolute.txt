@@ -18,3 +18,5 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Sign_in.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Sign_up.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Sign_in.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Sign_up.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Start.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Start.baml

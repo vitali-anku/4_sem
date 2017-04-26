@@ -33,17 +33,18 @@ namespace PO_V
             SaltedHash p = new SaltedHash(pass);
 
             db d = new db();
+            Start start = new Start();
 
-            d.Sign_in(log);
-            string hash = d.Hash;
-            string salt = d.Salt;
-            if (SaltedHash.Verify(hash, pass, salt))
+            if (d.Sign_in(log, pass, start))
             {
-                MessageBox.Show("Получилось войти!");
+                Start a = new Start();
+                NavigationService.Navigate(a);
+                textBox.Text = "";
+                passwordBox1.Password = "";
             }
             else
             {
-                label2.Content = "Неверный логин или пароль";
+                label2.Content = "Введен неверный логин или пароль";
                 textBox.Text = "";
                 passwordBox1.Password = "";
             }
