@@ -31,11 +31,9 @@ namespace PO_V
             string pass = passwordBox1.Password;
 
             SaltedHash p = new SaltedHash(pass);
-
+             
             db d = new db();
-            Start start = new Start();
-
-            if (d.Sign_in(log, pass, start))
+            if (d.Sign_in(log, pass))
             {
                 Start a = new Start();
                 NavigationService.Navigate(a);
@@ -48,6 +46,12 @@ namespace PO_V
                 textBox.Text = "";
                 passwordBox1.Password = "";
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Page1 home = new Page1();
+            NavigationService.Navigate(home);
         }
     }
 }

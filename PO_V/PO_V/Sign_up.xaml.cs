@@ -50,5 +50,11 @@ namespace PO_V
                 MessageBox.Show(ToString());
             }
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Page1 home = new Page1();
+            NavigationService.Navigate(home);
+        }
     }
 }

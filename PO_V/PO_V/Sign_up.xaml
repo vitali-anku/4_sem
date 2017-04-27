@@ -9,15 +9,15 @@
       Title="Sign_up">
 
     <Grid>
-        <Button x:Name="button" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="370,455,0,0" VerticalAlignment="Top" Width="185" Height="35" RenderTransformOrigin="0.222,0" Click="button_Click"/>
-        <Label x:Name="label5" Content="password:" HorizontalAlignment="Left" Margin="375,216,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="435,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="435,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox Name="passwordBox" PasswordChar="*" HorizontalAlignment="Left" Margin="435,222,0,0" Height="20" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="email:" HorizontalAlignment="Left" Margin="397,163,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="name:" HorizontalAlignment="Left" Margin="396,190,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="login:" HorizontalAlignment="Left" Margin="399,135,0,0" VerticalAlignment="Top" Height="28"/>
-        <TextBox x:Name="textBox3"   HorizontalAlignment="Left" Height="23" Margin="435,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button1" Content="Вернуться в главное меню"  HorizontalAlignment="Left" Margin="370,495,0,0" VerticalAlignment="Top" Width="185" Height="35"/>
+        <Label x:Name="label2" Content="login:" HorizontalAlignment="Left" FontSize="20" Margin="355,80,0,0" VerticalAlignment="Top" Height="40" Width="59"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="26" Margin="414,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166"/>
+        <Label x:Name="label" FontSize="20" Content="email:" HorizontalAlignment="Left" Margin="352,125,0,0" VerticalAlignment="Top" Height="35"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="414,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <Label x:Name="label1" FontSize="20" Content="name:" HorizontalAlignment="Left" Margin="349,165,0,0" VerticalAlignment="Top" Height="35" Width="65"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="20" Margin="414,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <Label x:Name="label5" FontSize="20" Content="password:" HorizontalAlignment="Left" Margin="316,205,0,0" VerticalAlignment="Top" Height="35"/>
+        <PasswordBox Name="passwordBox" PasswordChar="*" HorizontalAlignment="Left" Margin="414,215,0,0" Height="21" VerticalAlignment="Top" Width="166"/>
+        <Button x:Name="button" FontSize="20" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="320,375,0,0" VerticalAlignment="Top" Width="240" Height="40" RenderTransformOrigin="0.222,0" Click="button_Click"/>
+        <Button x:Name="button1" FontSize="20" Content="Вернуться в главное меню"  HorizontalAlignment="Left" Margin="300,435,0,0" VerticalAlignment="Top" Width="280" Height="40"/>
     </Grid>
 </Page>

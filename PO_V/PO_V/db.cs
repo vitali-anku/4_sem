@@ -40,7 +40,7 @@ namespace PO_V
             conn.Close();
         }
 
-        public bool Sign_in(string login, string pass, Start a)
+        public bool Sign_in(string login, string pass)
         {
             try
             {
@@ -69,17 +69,16 @@ namespace PO_V
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
-                            NavigationService.GetNavigationService(a);
-                            return o = true;
+                            o = true;
                         }
                         else
                         {
-                            return o = false;
+                            o = false;
                         }
                     }
                     else
                     {
-                        return o = false;
+                        o = false;
                     }
                 }
 
@@ -90,12 +89,12 @@ namespace PO_V
                 MessageBox.Show(e.ToString());
             }
 
-            conn.Close();
-
             if (o)
             {
                 i = o;
             }
+
+            conn.Close();
             return i;
         }
     }

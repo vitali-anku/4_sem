@@ -9,8 +9,7 @@
       Title="Page1">
 
     <Grid>
-        <Button x:Name="button" Content="Sign in" Click="buttonClick" HorizontalAlignment="Center" Margin="330,390,325,0" VerticalAlignment="Top" Width="145" RenderTransformOrigin="-0.933,0.5" Height="30"/>
-        <Button x:Name="button1" Content="Sign up" HorizontalAlignment="Center" Margin="330,480,325,0" VerticalAlignment="Top" Width="145" Height="30" Click="button1_Click"/>
-
+        <Button x:Name="button" FontSize="50" Content="Sign in" Click="buttonClick" HorizontalAlignment="Stretch" Margin="275,160,275,0" VerticalAlignment="Top" RenderTransformOrigin="0.933,0.5" Height="105"/>
+        <Button x:Name="button1" FontSize="50" Content="Sign up" HorizontalAlignment="Stretch" Margin="275,360,275,0" VerticalAlignment="Top" Height="120" Click="button1_Click"/>
     </Grid>
 </Page>
