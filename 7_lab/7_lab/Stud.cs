@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace _7_lab
 {
     [Serializable]
-    class Stud
+    public class Stud
     {
         public string Name { get; set; }
         public int Age { get; set; }

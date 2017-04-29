@@ -126,24 +126,12 @@ namespace _7_lab
 
                         MessageBox.Show("Объект стериализован");
                     }
-                    //Process.Start("student.xml");
+                    richTextBox1.Text = File.ReadAllText("student.xml");
                 }
                 catch (Exception p)
                 {
                     MessageBox.Show(p.ToString());
                 }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Process.Start("student.xml");
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Не существует такого файла");
             }
         }
     }
