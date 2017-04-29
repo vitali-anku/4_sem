@@ -21,13 +21,15 @@ namespace _7_lab
         public string street { get; set; }
         public string house { get; set; }
         public string apartament { get; set; }
-
+        
         public Stud()
         {
 
         }
 
-        public Stud(string name, int age, string spec, string birthday, string k, string group, string gender, string sr, AddressWithCity add)
+        public Stud(string name, int age, string spec, string birthday,
+            string k, string group, string gender, string sr,
+            AddressWithCity add)
         {
             Name = name;
             Age = age;
@@ -38,10 +40,22 @@ namespace _7_lab
             this.gender = gender;
             this.sr = sr;
             AddressWithCity address = add;
-            City = add._city.city;
-            street = add._address.street;
-            house = add._address.house;
-            apartament = add._address.apartament;
+            City = add.city.city;
+            street = add.address.street;
+            house = add.address.house;
+            apartament = add.address.apartament;
+        }
+    }
+
+    public class AddressWithCity
+    {
+        public City city;
+        public Address address;
+
+        public AddressWithCity(City c, Address a)
+        {
+            city = c;
+            address = a;
         }
     }
 
@@ -55,17 +69,5 @@ namespace _7_lab
         public string street { get; set; }
         public string house { get; set; }
         public string apartament { get; set; }
-    }
-
-    public class AddressWithCity
-    {
-        public City _city;
-        public Address _address;
-
-        public AddressWithCity(City c, Address a)
-        {
-            _city = c;
-            _address = a;
-        }
     }
 }

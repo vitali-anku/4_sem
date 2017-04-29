@@ -95,42 +95,56 @@ namespace _7_lab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            City _city = new City();
-            Address _add = new Address();
+            City city = new City();
+            Address add = new Address();
             if (!Validate())
             {
                 MessageBox.Show("Невалидные данные");
             }
             else
             {
-                _city.city = textBox4.Text;
+                city.city = textBox4.Text;
 
-                _add.street = textBox5.Text;
-                _add.house = textBox6.Text;
-                _add.apartament = textBox7.Text;
+                add.street = textBox5.Text;
+                add.house = textBox6.Text;
+                add.apartament = textBox7.Text;
 
-                AddressWithCity a = new AddressWithCity(_city, _add);
+                AddressWithCity a = new AddressWithCity(city, add);
                 Stud s = new Stud(textBox1.Text, Convert.ToInt32(textBox2.Text), comboBox6.SelectedItem.ToString(),
-                    comboBox1.SelectedItem.ToString() + "/"
+                                    comboBox1.SelectedItem.ToString() + "/"
                                     + comboBox2.SelectedItem.ToString() + "/" +
-                                    comboBox3.SelectedItem.ToString(), comboBox4.SelectedItem.ToString(), comboBox5.SelectedItem.ToString(),
+                                    comboBox3.SelectedItem.ToString(),
+                                    comboBox4.SelectedItem.ToString(), comboBox5.SelectedItem.ToString(),
                                     radioButton1.Checked ? "М" : "Ж", textBox3.Text, a);
-                XmlSerializer formatter = new XmlSerializer(typeof(Stud));
-
-                // получаем поток, куда будем записывать сериализованный объект
-                using (FileStream fs = new FileStream("student.xml", FileMode.OpenOrCreate))
+                try
                 {
-                    formatter.Serialize(fs, s);
+                    XmlSerializer formatter = new XmlSerializer(typeof(Stud));
+                    // получаем поток, куда будем записывать сериализованный объект
+                    using (FileStream fs = new FileStream("student.xml", FileMode.OpenOrCreate))
+                    {
+                        formatter.Serialize(fs, s);
 
-                    MessageBox.Show("Объект стериализован");
+                        MessageBox.Show("Объект стериализован");
+                    }
+                    //Process.Start("student.xml");
                 }
-                //Process.Start("student.xml");
+                catch (Exception p)
+                {
+                    MessageBox.Show(p.ToString());
+                }
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Process.Start("student.xml");
+            try
+            {
+                Process.Start("student.xml");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Не существует такого файла");
+            }
         }
     }
 }
