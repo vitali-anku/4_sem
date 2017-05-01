@@ -61,7 +61,7 @@ namespace _7_lab
             }
         }
 
-        bool Validate()
+        bool Proverka()
         {
             if (richTextBox2.Text != null && textBox2.Text != null
                 && comboBox1.SelectedItem != null && comboBox2.SelectedItem != null && comboBox3.SelectedItem != null
@@ -92,7 +92,7 @@ namespace _7_lab
         {
             City city = new City();
             Address add = new Address();
-            if (!Validate())
+            if (!Proverka())
             {
                 MessageBox.Show("Невалидные данные");
             }
@@ -114,7 +114,7 @@ namespace _7_lab
                 try
                 {
                     XmlSerializer formatter = new XmlSerializer(typeof(Stud));
-                    // получаем поток, куда будем записывать сериализованный объект
+                    
                     using (FileStream fs = new FileStream("student.xml", FileMode.OpenOrCreate))
                     {
                         formatter.Serialize(fs, s);
