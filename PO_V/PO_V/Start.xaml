@@ -4,11 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PO_V"
+      xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="Start">
 
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" RowHeaderWidth="0" BorderThickness="0"  IsReadOnly="True" GridLinesVisibility="None"  Background="White" ColumnWidth="Auto"
+                  RowHeight="25" FontFamily="Yu Gothic UI Semilight" FontSize="15" HorizontalAlignment="Left" Margin="220,65,0,0" VerticalAlignment="Top"
+                  Height="Auto" Width="Auto" Opacity="1" />
+        <Button x:Name="button" Content="Близжайшие автобусы" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Width="170" Click="button_Click" />
+        <Button x:Name="button1" Content="Забронированные биллеты" HorizontalAlignment="Left" Margin="40,145,0,0" VerticalAlignment="Top" Width="170" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Очистить" HorizontalAlignment="Left" Margin="40,220,0,0" VerticalAlignment="Top" Width="170" Click="button2_Click"/>
     </Grid>
 </Page>

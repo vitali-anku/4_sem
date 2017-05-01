@@ -5,5 +5,4 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PO_V"
         mc:Ignorable="d"
-        Title="ПО Автовокзал"  Height="600" Width="800" ShowsNavigationUI="False" WindowStartupLocation="CenterScreen" Source="Page1.xaml">
-</NavigationWindow>
+        Title="ПО Автовокзал" Height="600" Width="800" ShowsNavigationUI="False" WindowStartupLocation="CenterScreen" Source="Page1.xaml"/>

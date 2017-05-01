@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +20,82 @@ namespace PO_V
     /// <summary>
     /// Логика взаимодействия для Start.xaml
     /// </summary>
+
     public partial class Start : Page
     {
         public Start()
         {
             InitializeComponent();
+            button.Content = "Близжайшие прибытия";
+        }
+
+        static db n = new db();
+        private string name = n.ReturnName();
+
+        public void Bron()
+        {
+            string lin = @"Data Source=VITALI\SQLSERVER;
+                         Initial Catalog=Kursach;
+                         Integrated Security=True";
+
+            string arr = string.Format("select * from BUs");
+
+            using (SqlConnection conn = new SqlConnection(lin))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(arr, conn);
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+
+                    sda.Fill(dt);
+
+                    dataGrid.ItemsSource = dt.DefaultView;
+                }
+                conn.Close();
+            }
+
+        }
+
+        public void Route()
+        {
+
+            string lin = @"Data Source=VITALI\SQLSERVER;
+                         Initial Catalog=Kursach;
+                         Integrated Security=True";
+
+            string arr = string.Format("select number, arival_point, area, region, departure_time, arrival_time from Route order by departure_time");
+
+            using (SqlConnection conn = new SqlConnection(lin))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(arr, conn);
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+
+                    sda.Fill(dt);
+
+                    dataGrid.ItemsSource = dt.DefaultView;
+                }
+                conn.Close();
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Route();
+            MessageBox.Show(name);
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Bron();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = null;
         }
     }
 }

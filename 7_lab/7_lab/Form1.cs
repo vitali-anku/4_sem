@@ -63,7 +63,7 @@ namespace _7_lab
 
         bool Validate()
         {
-            if (textBox1.Text != null && textBox2.Text != null
+            if (richTextBox2.Text != null && textBox2.Text != null
                 && comboBox1.SelectedItem != null && comboBox2.SelectedItem != null && comboBox3.SelectedItem != null
                 && comboBox4.SelectedItem != null && comboBox5.SelectedItem != null && comboBox6.SelectedItem != null
                 && textBox3.Text != null && textBox4.Text != null && textBox5.Text != null
@@ -87,13 +87,8 @@ namespace _7_lab
             Vozrast();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            File.Delete("xml.txt");
-            MessageBox.Show("Очищено");
-        }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             City city = new City();
             Address add = new Address();
@@ -110,7 +105,7 @@ namespace _7_lab
                 add.apartament = textBox7.Text;
 
                 AddressWithCity a = new AddressWithCity(city, add);
-                Stud s = new Stud(textBox1.Text, Convert.ToInt32(textBox2.Text), comboBox6.SelectedItem.ToString(),
+                Stud s = new Stud(richTextBox2.Text, Convert.ToInt32(textBox2.Text), comboBox6.SelectedItem.ToString(),
                                     comboBox1.SelectedItem.ToString() + "/"
                                     + comboBox2.SelectedItem.ToString() + "/" +
                                     comboBox3.SelectedItem.ToString(),
@@ -133,6 +128,13 @@ namespace _7_lab
                     MessageBox.Show(p.ToString());
                 }
             }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            File.Delete("xml.txt");
+            MessageBox.Show("Очищено");
+            richTextBox1.Text = "";
         }
     }
 }

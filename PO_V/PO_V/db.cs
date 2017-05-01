@@ -6,33 +6,56 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Navigation;
+using System.Data;
 
 namespace PO_V
 {
-    class db
+    //public interface IRepository<T> where T : Entity
+    //{
+    //    IQueryable<T> GetAll();
+    //    bool Save(T entity);
+    //    bool Delete(int id);
+    //    bool Delete(T entity);
+    //}
+
+    //public abstract class Entity
+    //{
+    //    protected Entity()
+    //    {
+    //        Id = -1;
+    //    }
+
+    //    public int Id { get; set; }
+
+    //    public bool IsNew()
+    //    {
+    //        return Id == -1;
+    //    }
+    //}
+
+    public class db
     {
-        static string str = @"Data Source=VITALI\SQLSERVER;
+        static string lin = @"Data Source=VITALI\SQLSERVER;
                          Initial Catalog=Kursach;
                          Integrated Security=True";
         bool o = false, i;
 
-
+        public static string Name { get; set; }
         public string Hash { get; set; }
         public string Salt { get; set; }
 
-        static SqlConnection conn = new SqlConnection(str);
-
-        public void Reg(string login, string name, string email, string salt, string hash)
+        static SqlConnection conn = new SqlConnection(lin);
+        
+        public void Reg(string login, string name, string salt, string hash)
         {
             conn.Open();
 
             string sql = string.Format("insert Into _user" +
-                            "(login, name, email, salt, hash) values(@login, @name ,@email, @salt, @hash)");
+                            "(login, name, salt, hash) values(@login, @name, @salt, @hash)");
             using (SqlCommand myCommand = new SqlCommand(sql, conn))
             {
                 myCommand.Parameters.AddWithValue("@login", login);
                 myCommand.Parameters.AddWithValue("@name", name);
-                myCommand.Parameters.AddWithValue("@email", email);
                 myCommand.Parameters.AddWithValue("@salt", salt);
                 myCommand.Parameters.AddWithValue("@hash", hash);
                 myCommand.ExecuteNonQuery();
@@ -65,7 +88,10 @@ namespace PO_V
                         while (myReader.Read())
                         {
                             Salt = myReader["salt"].ToString();
+                            MessageBox.Show(Salt);
                             Hash = myReader["hash"].ToString();
+                            Name = myReader["name"].ToString();
+                            MessageBox.Show(Name);
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -96,6 +122,11 @@ namespace PO_V
 
             conn.Close();
             return i;
+        }
+
+        public string ReturnName()
+        {
+            return Name;
         }
     }
 }

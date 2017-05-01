@@ -25,6 +25,8 @@ namespace PO_V
             InitializeComponent();
         }
 
+        public string Nam { get; set; }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string log = textBox.Text;
@@ -36,6 +38,7 @@ namespace PO_V
             if (d.Sign_in(log, pass))
             {
                 Start a = new Start();
+
                 NavigationService.Navigate(a);
                 textBox.Text = "";
                 passwordBox1.Password = "";

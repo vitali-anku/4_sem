@@ -7,12 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Sign_up">
-
     <Grid>
-        <Label x:Name="label2" Content="login:" HorizontalAlignment="Left" FontSize="20" Margin="355,80,0,0" VerticalAlignment="Top" Height="40" Width="59"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="26" Margin="414,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166"/>
-        <Label x:Name="label" FontSize="20" Content="email:" HorizontalAlignment="Left" Margin="352,125,0,0" VerticalAlignment="Top" Height="35"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="414,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <Label x:Name="label2" Content="login:" HorizontalAlignment="Left" FontSize="20" Margin="355,124,0,0" VerticalAlignment="Top" Height="40" Width="59"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="26" Margin="414,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166"/>
         <Label x:Name="label1" FontSize="20" Content="name:" HorizontalAlignment="Left" Margin="349,165,0,0" VerticalAlignment="Top" Height="35" Width="65"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="20" Margin="414,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
         <Label x:Name="label5" FontSize="20" Content="password:" HorizontalAlignment="Left" Margin="316,205,0,0" VerticalAlignment="Top" Height="35"/>

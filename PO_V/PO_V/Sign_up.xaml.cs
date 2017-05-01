@@ -28,7 +28,6 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string log = textBox3.Text;
-            string email = textBox.Text;
             string name = textBox1.Text;
             string pass = passwordBox.Password;
 
@@ -40,7 +39,7 @@ namespace PO_V
 
             try
             {
-                reg.Reg(log, name, email, sal, hash);
+                reg.Reg(log, name, sal, hash);
                 MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
                 Sign_in ni = new Sign_in();
                 NavigationService.Navigate(ni);
