@@ -15,7 +15,7 @@
         <Label x:Name="label5" FontSize="20" Content="password:" HorizontalAlignment="Left" Margin="316,205,0,0" VerticalAlignment="Top" Height="35"/>
         <PasswordBox Name="passwordBox" PasswordChar="*" HorizontalAlignment="Left" Margin="414,215,0,0" Height="21" VerticalAlignment="Top" Width="166"/>
         <Button x:Name="button" FontSize="20" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="320,375,0,0" VerticalAlignment="Top" Width="240" Height="40" RenderTransformOrigin="0.222,0" Click="button_Click"/>
-        <Button x:Name="button1" FontSize="20" Content="Вернуться в главное меню"  HorizontalAlignment="Left" Margin="300,435,0,0" VerticalAlignment="Top" Width="280" Height="40"/>
         <Label x:Name="lg" Foreground="Red" FontSize="10" HorizontalAlignment="Left" Margin="414,155,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
+        <Button x:Name="button1" FontSize="20"  Content="Вернуться в главное меню" HorizontalAlignment="Left" Margin="280,435,0,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="-0.387,-2.25" Height="40" Click="button1_Click"/>
     </Grid>
 </Page>

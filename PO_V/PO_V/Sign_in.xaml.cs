@@ -31,7 +31,7 @@ namespace PO_V
             string pass = passwordBox1.Password;
              
             db d = new db();
-            if (log != null && pass != null && d.Sign_in(log, pass))
+            if (!string.IsNullOrEmpty(textBox.Text) && !string.IsNullOrEmpty(passwordBox1.Password) && d.Sign_in(log, pass))
             {
                 SaltedHash p = new SaltedHash(pass);
                 Start a = new Start();

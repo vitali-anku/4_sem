@@ -20,9 +20,39 @@ namespace PO_V
     /// </summary>
     public partial class Settings : Page
     {
+        static db upremov = new db();
+
         public Settings()
         {
             InitializeComponent();
+            Logi.Content = "Ваш логин: " + upremov.ReturnLogin();
+            Name.Content= "Ваше name: " + upremov.ReturnName();
+        }
+
+        private void Log_Click(object sender, RoutedEventArgs e)
+        {
+            string log = Upd.Text;
+            if (!string.IsNullOrEmpty(Upd.Text))
+            {   
+                upremov.UpdateLog(log);
+                upremov.A();
+                Logi.Content = upremov.ReturnLogin();
+            }
+            else
+                MessageBox.Show("Введите значение в поле");
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string nam = Upd.Text;
+            if (!string.IsNullOrEmpty(Upd.Text))
+            {
+                upremov.UpdateLog(nam);
+                upremov.A();
+                Name.Content = upremov.ReturnLogin();
+            }
+            else
+                MessageBox.Show("Введите значение в поле");
         }
     }
 }

@@ -39,7 +39,7 @@ namespace PO_V
 
             try
             {
-                if (pass != "" && name != "" && log != "") 
+                if (!string.IsNullOrEmpty(Log.Text) && !string.IsNullOrEmpty(Nam.Text) && !string.IsNullOrEmpty(passwordBox.Password)) 
                 {
                     if (reg.Vald(log))
                     {
@@ -67,11 +67,11 @@ namespace PO_V
                 MessageBox.Show(ToString());
             }
         }
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Page1 home = new Page1();
-            NavigationService.Navigate(home);
+            Page1 start = new Page1();
+            NavigationService.Navigate(start);
         }
+        
     }
 }

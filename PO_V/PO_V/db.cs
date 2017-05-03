@@ -69,15 +69,7 @@ namespace PO_V
 
         public bool Sign_in(string login, string pass)
         {
-            try
-            {
-                conn.Open();
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.ToString());
-
-            }
+            conn.Open();
             
             try
             {
@@ -95,6 +87,7 @@ namespace PO_V
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
                             Name = myReader["name"].ToString();
+                            Login = myReader["login"].ToString();
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -127,9 +120,64 @@ namespace PO_V
             return i;
         }
 
+        public void A()
+        {
+            conn.Open();
+            string str1 = string.Format("select * from _user");
+            using (SqlCommand b = new SqlCommand(str1, conn))
+            {
+                SqlDataReader myReader = null;
+                myReader = b.ExecuteReader();
+                while (myReader.Read())
+                {
+                    Login = myReader["login"].ToString();
+                    Name = myReader["name"].ToString();
+                }
+            }
+            conn.Close();
+        }
+
+        public void UpdateLog(string login)
+        {
+            conn.Open();
+            string str = string.Format("Update _user Set login=@login Where name = @name");
+            using (SqlCommand a = new SqlCommand(str, conn))
+            {
+                a.CommandText = "Update _user Set login=@login Where name = @name";
+                a.Parameters.AddWithValue("@login", login);
+                a.Parameters.AddWithValue("@name", ReturnName());
+                a.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
+
+        public void UpdateName(string name)
+        {
+            conn.Open();
+            string str = string.Format("Update _user Set name = @name Where login = @login");
+            using (SqlCommand a = new SqlCommand(str, conn))
+            {
+                a.CommandText = "Update _user Set name = @name Where login = @login";
+                a.Parameters.AddWithValue("@login", name);
+                a.Parameters.AddWithValue("@name", ReturnLogin());
+                a.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
+
+        public void RemovePass(string pass)
+        {
+
+        }
+
         public string ReturnName()
         {
             return Name;
+        }
+
+        public string ReturnLogin()
+        {
+            return Login;
         }
     }
 }
