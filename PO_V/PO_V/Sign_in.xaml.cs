@@ -25,18 +25,15 @@ namespace PO_V
             InitializeComponent();
         }
 
-        public string Nam { get; set; }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string log = textBox.Text;
             string pass = passwordBox1.Password;
-
-            SaltedHash p = new SaltedHash(pass);
              
             db d = new db();
-            if (d.Sign_in(log, pass))
+            if (log != null && pass != null && d.Sign_in(log, pass))
             {
+                SaltedHash p = new SaltedHash(pass);
                 Start a = new Start();
 
                 NavigationService.Navigate(a);

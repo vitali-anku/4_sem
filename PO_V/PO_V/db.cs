@@ -10,48 +10,52 @@ using System.Data;
 
 namespace PO_V
 {
-    //public interface IRepository<T> where T : Entity
-    //{
-    //    IQueryable<T> GetAll();
-    //    bool Save(T entity);
-    //    bool Delete(int id);
-    //    bool Delete(T entity);
-    //}
-
-    //public abstract class Entity
-    //{
-    //    protected Entity()
-    //    {
-    //        Id = -1;
-    //    }
-
-    //    public int Id { get; set; }
-
-    //    public bool IsNew()
-    //    {
-    //        return Id == -1;
-    //    }
-    //}
-
     public class db
     {
         static string lin = @"Data Source=VITALI\SQLSERVER;
                          Initial Catalog=Kursach;
                          Integrated Security=True";
-        bool o = false, i;
+        bool o = false, i = false;
 
         public static string Name { get; set; }
+        public static string Login { get; set; }
         public string Hash { get; set; }
         public string Salt { get; set; }
 
         static SqlConnection conn = new SqlConnection(lin);
         
-        public void Reg(string login, string name, string salt, string hash)
+        public bool Vald(string l)
         {
             conn.Open();
 
+            string str = string.Format("Select * from _user where login = @login");
+
+            using (SqlCommand myCommand = new SqlCommand(str, conn))
+            {
+                myCommand.Parameters.AddWithValue("@login", l);
+                myCommand.ExecuteNonQuery();
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    o = false;
+                }
+                else
+                    o = true;
+            }
+            if (o)
+                i = true;
+        
+            conn.Close();
+            return i;
+        }
+
+        public void Reg(string login, string name, string salt, string hash)
+        {
+            conn.Open();
             string sql = string.Format("insert Into _user" +
                             "(login, name, salt, hash) values(@login, @name, @salt, @hash)");
+
             using (SqlCommand myCommand = new SqlCommand(sql, conn))
             {
                 myCommand.Parameters.AddWithValue("@login", login);
@@ -72,6 +76,7 @@ namespace PO_V
             catch(Exception e)
             {
                 MessageBox.Show(e.ToString());
+
             }
             
             try
@@ -88,10 +93,8 @@ namespace PO_V
                         while (myReader.Read())
                         {
                             Salt = myReader["salt"].ToString();
-                            MessageBox.Show(Salt);
                             Hash = myReader["hash"].ToString();
                             Name = myReader["name"].ToString();
-                            MessageBox.Show(Name);
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {

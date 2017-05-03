@@ -27,8 +27,8 @@ namespace PO_V
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string log = textBox3.Text;
-            string name = textBox1.Text;
+            string log = Log.Text;
+            string name = Nam.Text;
             string pass = passwordBox.Password;
 
             db reg = new db();
@@ -39,10 +39,28 @@ namespace PO_V
 
             try
             {
-                reg.Reg(log, name, sal, hash);
-                MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
-                Sign_in ni = new Sign_in();
-                NavigationService.Navigate(ni);
+                if (pass != "" && name != "" && log != "") 
+                {
+                    if (reg.Vald(log))
+                    {
+                        reg.Reg(log, name, sal, hash);
+                        MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
+                        Sign_in ni = new Sign_in();
+                        NavigationService.Navigate(ni);
+                    }
+                    else
+                    {
+                        lg.Content = "Пользователь с таким логином уже существует";
+                        Log.Text = "";
+                        Nam.Text = "";
+                        passwordBox.Password = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Заполните все поля для регистрации");
+                }
+                    
             }
             catch(Exception)
             {

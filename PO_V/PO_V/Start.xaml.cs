@@ -23,14 +23,16 @@ namespace PO_V
 
     public partial class Start : Page
     {
+        static db n = new db();
+        public string name = n.ReturnName();
+
+
         public Start()
         {
             InitializeComponent();
-            button.Content = "Близжайшие прибытия";
+            button.Content = "Ближайшие прибытия";
+            Nam.Content = name;
         }
-
-        static db n = new db();
-        private string name = n.ReturnName();
 
         public void Bron()
         {
@@ -96,6 +98,12 @@ namespace PO_V
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             dataGrid.ItemsSource = null;
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Settings pr = new Settings();
+            NavigationService.Navigate(pr);
         }
     }
 }
