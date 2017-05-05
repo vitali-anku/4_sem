@@ -25,14 +25,27 @@ namespace PO_V
         public Settings()
         {
             InitializeComponent();
-            Logi.Content = "Ваш логин: " + upremov.ReturnLogin();
-            Name.Content= "Ваше name: " + upremov.ReturnName();
+            Logi.Content = upremov.ReturnLogin();
+            Name.Content = upremov.ReturnName();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string nam = Upd.Text;
+            if (nam != "")
+            {
+                upremov.UpdateName(nam);
+                upremov.A();
+                Name.Content = upremov.ReturnName();
+            }
+            else
+                MessageBox.Show("Введите значение в поле");
         }
 
         private void Log_Click(object sender, RoutedEventArgs e)
         {
             string log = Upd.Text;
-            if (!string.IsNullOrEmpty(Upd.Text))
+            if (log != "") 
             {   
                 upremov.UpdateLog(log);
                 upremov.A();
@@ -42,17 +55,16 @@ namespace PO_V
                 MessageBox.Show("Введите значение в поле");
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button2_Click(object sender, RoutedEventArgs e)
         {
-            string nam = Upd.Text;
-            if (!string.IsNullOrEmpty(Upd.Text))
-            {
-                upremov.UpdateLog(nam);
-                upremov.A();
-                Name.Content = upremov.ReturnLogin();
-            }
-            else
-                MessageBox.Show("Введите значение в поле");
+            UpdatePass up = new UpdatePass();
+            NavigationService.Navigate(up);
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            DeletAc del = new DeletAc();
+            NavigationService.Navigate(del);
         }
     }
 }

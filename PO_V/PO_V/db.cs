@@ -111,13 +111,8 @@ namespace PO_V
                 MessageBox.Show(e.ToString());
             }
 
-            if (o)
-            {
-                i = o;
-            }
-
             conn.Close();
-            return i;
+            return o;
         }
 
         public void A()
@@ -132,6 +127,8 @@ namespace PO_V
                 {
                     Login = myReader["login"].ToString();
                     Name = myReader["name"].ToString();
+                    Salt = myReader["salt"].ToString();
+                    Hash = myReader["hash"].ToString();
                 }
             }
             conn.Close();
@@ -158,10 +155,28 @@ namespace PO_V
             using (SqlCommand a = new SqlCommand(str, conn))
             {
                 a.CommandText = "Update _user Set name = @name Where login = @login";
-                a.Parameters.AddWithValue("@login", name);
-                a.Parameters.AddWithValue("@name", ReturnLogin());
+                a.Parameters.AddWithValue("@login", ReturnLogin());
+                a.Parameters.AddWithValue("@name", name);
                 a.ExecuteNonQuery();
             }
+            conn.Close();
+        }
+
+        public void UpdatePass(string salt, string hash)
+        {
+            conn.Open();
+
+            string str = string.Format("Update _user Set salt = @salt, hash = @hash Where login = @login");
+            using (SqlCommand a = new SqlCommand(str, conn))
+            {
+
+                a.CommandText = "Update _user Set salt = @salt, hash = @hash Where login = @login";
+                a.Parameters.AddWithValue("@salt", salt);
+                a.Parameters.AddWithValue("@hash", hash);
+                a.Parameters.AddWithValue("@login", ReturnLogin());
+                a.ExecuteNonQuery();
+            }
+
             conn.Close();
         }
 

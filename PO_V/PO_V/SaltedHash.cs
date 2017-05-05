@@ -39,7 +39,7 @@ namespace PO_V
             var hashAttempt = ComputeHash(password, salt);
             return hash == hashAttempt;
         }
-         
+
         static string ComputeHash(string password, string saltBase64)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);

@@ -29,7 +29,7 @@ namespace PO_V
         {
             string log = Log.Text;
             string name = Nam.Text;
-            string pass = passwordBox.Password;
+            string pass = pass1.Password;
 
             db reg = new db();
             SaltedHash salt = new SaltedHash(pass);
@@ -39,22 +39,28 @@ namespace PO_V
 
             try
             {
-                if (!string.IsNullOrEmpty(Log.Text) && !string.IsNullOrEmpty(Nam.Text) && !string.IsNullOrEmpty(passwordBox.Password)) 
+                if (!string.IsNullOrEmpty(Log.Text) && !string.IsNullOrEmpty(Nam.Text) && !string.IsNullOrEmpty(pass1.Password))
                 {
-                    if (reg.Vald(log))
+                    if (pass1.Password == pass2.Password)
                     {
-                        reg.Reg(log, name, sal, hash);
-                        MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
-                        Sign_in ni = new Sign_in();
-                        NavigationService.Navigate(ni);
+                        if (reg.Vald(log))
+                        {
+                            reg.Reg(log, name, sal, hash);
+                            MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
+                            Sign_in ni = new Sign_in();
+                            NavigationService.Navigate(ni);
+                        }
+                        else
+                        {
+                            lg.Content = "Пользователь с таким логином уже существует";
+                            Log.Text = "";
+                            Nam.Text = "";
+                            pass1.Password = "";
+                            pass2.Password = "";
+                        }
                     }
                     else
-                    {
-                        lg.Content = "Пользователь с таким логином уже существует";
-                        Log.Text = "";
-                        Nam.Text = "";
-                        passwordBox.Password = "";
-                    }
+                        label3.Content = "Неверные данные";
                 }
                 else
                 {
