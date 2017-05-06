@@ -60,11 +60,5 @@ namespace PO_V
             UpdatePass up = new UpdatePass();
             NavigationService.Navigate(up);
         }
-
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            DeletAc del = new DeletAc();
-            NavigationService.Navigate(del);
-        }
     }
 }

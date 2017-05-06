@@ -57,6 +57,7 @@ namespace PO_V
                             Nam.Text = "";
                             pass1.Password = "";
                             pass2.Password = "";
+                            label3.Content = "";
                         }
                     }
                     else
