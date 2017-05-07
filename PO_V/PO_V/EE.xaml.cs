@@ -10,24 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PO_V
 {
     /// <summary>
-    /// Логика взаимодействия для UpdatePass.xaml
+    /// Логика взаимодействия для EE.xaml
     /// </summary>
-    public partial class UpdatePass : Page
+    public partial class EE : Window
     {
-        public UpdatePass()
+        public EE()
         {
             InitializeComponent();
         }
-
         static db a = new db();
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click_1(object sender, RoutedEventArgs e)
         {
             string pass = pass1.Password;
             string new_pass = pass2.Password;
@@ -39,44 +37,39 @@ namespace PO_V
             {
                 if (a.Sign_in(login, pass))
                 {
+                    pa1.Content = "";
                     if (!string.IsNullOrEmpty(new_pass))
                     {
                         a.UpdatePass(salt, hash);
                         MessageBox.Show("Пароль изменен");
+                        pa2.Content = "";
+                        pass1.Password = "";
+                        pass2.Password = "";
+                        this.Close();
                     }
                     else
                         pa2.Content = "Введите новый пароль!";
                 }
                 else
                 {
+
                     pa1.Content = "Неверный пароль";
+                    pa2.Content = "";
                     pass1.Password = "";
                     pass2.Password = "";
-                } 
+                }
             }
             else
             {
-                pa1.Content = "Неверный пароль";
+                pa2.Content = "";
+                pa1.Content = "Введите пароль";
                 pass2.Password = "";
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Page1 pag = new Page1();
-            NavigationService.Navigate(pag);
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            string login = a.ReturnLogin();
-            string pass = pass2.Password;
-            if (a.Sign_in(login, pass))
-            {
-                MessageBox.Show("Ok");
-            }
-            else
-                MessageBox.Show("no"); 
+            this.Close();
         }
     }
 }

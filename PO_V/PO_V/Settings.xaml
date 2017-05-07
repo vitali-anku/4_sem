@@ -12,9 +12,9 @@
         <Button x:Name="button" Content="Изменить имя" HorizontalAlignment="Left" Margin="200,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="button_Click" />
         <Button x:Name="Log" Content="Изменить логин" HorizontalAlignment="Left" Margin="200,165,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="Log_Click"/>
         <Button x:Name="button2" Content="Изменить пароль" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="button2_Click"/>
-        <TextBox x:Name="Upd" HorizontalAlignment="Left" Height="20" Margin="365,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
         <Label x:Name="Logi" HorizontalAlignment="Left" Margin="350,75,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Label x:Name="Name" HorizontalAlignment="Left" Margin="350,40,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Button x:Name="button1" Content="Показать:" HorizontalAlignment="Left" Margin="240,50,0,0" VerticalAlignment="Top" Width="100" Height="20" Background="#FF09090A" Click="button1_Click" Foreground="White"/>
 
     </Grid>
 </Page>

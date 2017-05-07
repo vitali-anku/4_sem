@@ -87,7 +87,6 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Route();
-            MessageBox.Show(name);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

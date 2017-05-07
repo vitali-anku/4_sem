@@ -25,40 +25,30 @@ namespace PO_V
         public Settings()
         {
             InitializeComponent();
-            Logi.Content = upremov.ReturnLogin();
-            Name.Content = upremov.ReturnName();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string nam = Upd.Text;
-            if (nam != "")
-            {
-                upremov.UpdateName(nam);
-                upremov.A();
-                Name.Content = upremov.ReturnName();
-            }
-            else
-                MessageBox.Show("Введите значение в поле");
+            UpName nam = new UpName();
+            nam.Show();
         }
 
         private void Log_Click(object sender, RoutedEventArgs e)
         {
-            string log = Upd.Text;
-            if (log != "") 
-            {   
-                upremov.UpdateLog(log);
-                upremov.A();
-                Logi.Content = upremov.ReturnLogin();
-            }
-            else
-                MessageBox.Show("Введите значение в поле");
+            UpLog log = new UpLog();
+            log.Show();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            UpdatePass up = new UpdatePass();
-            NavigationService.Navigate(up);
+            EE nam = new EE();
+            nam.Show();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Logi.Content = "Логин: " + upremov.ReturnLogin();
+            Name.Content = "ФИО: " + upremov.ReturnName();
         }
     }
 }

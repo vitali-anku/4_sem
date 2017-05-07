@@ -22,5 +22,9 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Start.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Start.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Settings.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Settings.baml
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpdatePass.g.cs
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpdatePass.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\EE.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\EE.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpLog.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpName.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpLog.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpName.baml

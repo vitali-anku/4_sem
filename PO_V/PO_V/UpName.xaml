@@ -1,0 +1,17 @@
+﻿<Window x:Class="PO_V.UpName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO_V"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="UpName" Height="300" Width="289">
+    <Grid>
+        <Button x:Name="Изменить" Content="Button" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" Width="80" Click="button_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="60,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="80,200,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
+        <Label x:Name="label" Content="Введите новое ФИО" HorizontalAlignment="Left" Margin="70,39,0,0" VerticalAlignment="Top" Width="140"/>
+
+    </Grid>
+</Window>
