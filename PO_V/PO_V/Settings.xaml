@@ -14,7 +14,6 @@
         <Button x:Name="button2" Content="Изменить пароль" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="button2_Click"/>
         <Label x:Name="Logi" HorizontalAlignment="Left" Margin="350,75,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Label x:Name="Name" HorizontalAlignment="Left" Margin="350,40,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Button x:Name="button1" Content="Показать:" HorizontalAlignment="Left" Margin="240,50,0,0" VerticalAlignment="Top" Width="100" Height="20" Background="#FF09090A" Click="button1_Click" Foreground="White"/>
-
+        <Button x:Name="button1" BorderBrush="Transparent" Content="Обновить данные" HorizontalAlignment="Left" Margin="235,60,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Height="Auto" Foreground="#FF080101" Background="#FF999090" />
     </Grid>
 </Page>

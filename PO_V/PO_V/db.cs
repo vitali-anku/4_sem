@@ -19,8 +19,10 @@ namespace PO_V
 
         public static string Name { get; set; }
         public static string Login { get; set; }
-        public string Hash { get; set; }
         public string Salt { get; set; }
+        public string Number_passport { get; set; }
+        public string Phone { get; set; }
+        public string Hash { get; set; }
 
         static SqlConnection conn = new SqlConnection(lin);
         
@@ -50,17 +52,19 @@ namespace PO_V
             return i;
         }
 
-        public void Reg(string login, string name, string salt, string hash)
+        public void Reg(string login, string ful_name, string salt, string number_passport, string phone, string hash)
         {
             conn.Open();
             string sql = string.Format("insert Into _user" +
-                            "(login, name, salt, hash) values(@login, @name, @salt, @hash)");
+                            "(login, full_name, salt, number_passprort, phone, hash) values(@login, @ful_name, @salt, @number_passport, @phone, @hash)");
 
             using (SqlCommand myCommand = new SqlCommand(sql, conn))
             {
                 myCommand.Parameters.AddWithValue("@login", login);
-                myCommand.Parameters.AddWithValue("@name", name);
+                myCommand.Parameters.AddWithValue("@ful_name", ful_name);
                 myCommand.Parameters.AddWithValue("@salt", salt);
+                myCommand.Parameters.AddWithValue("@number_passport", number_passport);
+                myCommand.Parameters.AddWithValue("@phone", phone);
                 myCommand.Parameters.AddWithValue("@hash", hash);
                 myCommand.ExecuteNonQuery();
             }
@@ -86,8 +90,6 @@ namespace PO_V
                         {
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
-                            Name = myReader["name"].ToString();
-                            Login = myReader["login"].ToString();
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -126,8 +128,10 @@ namespace PO_V
                 while (myReader.Read())
                 {
                     Login = myReader["login"].ToString();
-                    Name = myReader["name"].ToString();
+                    Name = myReader["ful_name"].ToString();
                     Salt = myReader["salt"].ToString();
+                    Number_passport = myReader["number_passport"].ToString();
+                    Phone = myReader["phone"].ToString();
                     Hash = myReader["hash"].ToString();
                 }
             }
@@ -193,6 +197,16 @@ namespace PO_V
         public string ReturnLogin()
         {
             return Login;
+        }
+
+        public string ReturnNumber_passport()
+        {
+            return Number_passport;
+        }
+
+        public string ReturnPhone()
+        {
+            return Phone;
         }
     }
 }

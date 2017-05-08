@@ -36,7 +36,7 @@ namespace PO_V
                 this.Close();
             }
             else
-                MessageBox.Show("Введите значение в поле");
+                label.Content = "Введите значение в поле";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

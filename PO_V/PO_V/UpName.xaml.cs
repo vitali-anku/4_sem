@@ -31,9 +31,11 @@ namespace PO_V
             {
                 upremov.UpdateName(nam);
                 upremov.A();
+                MessageBox.Show("ФИО изменено");
+                this.Close();
             }
             else
-                MessageBox.Show("Введите значение в поле");
+                lab.Content = "Заполните поле";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

@@ -8,9 +8,9 @@
         WindowStartupLocation="CenterScreen"
         Title="UpLog" Height="300" Width="300">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="105,190,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="80,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="80,239,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
-
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="80,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Изменить" HorizontalAlignment="Left" Margin="105,160,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="80,200,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
+        <Label x:Name="label" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="92,129,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
