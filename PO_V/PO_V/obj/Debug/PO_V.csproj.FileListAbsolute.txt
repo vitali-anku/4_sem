@@ -28,3 +28,7 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpLog.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpName.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpLog.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpName.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.baml

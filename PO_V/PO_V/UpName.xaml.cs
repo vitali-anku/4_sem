@@ -29,8 +29,8 @@ namespace PO_V
             string nam = textBox.Text;
             if (nam != "")
             {
-                upremov.UpdateName(nam);
                 upremov.A();
+                upremov.UpdateName(nam);
                 MessageBox.Show("ФИО изменено");
                 this.Close();
             }

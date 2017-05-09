@@ -8,7 +8,13 @@
         WindowStartupLocation="CenterScreen"
         Title="UpName" Height="300" Width="289">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="60,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="60,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" >
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Button x:Name="update" Content="Изменить" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" Width="80" Click="button_Click"/>
         <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="80,200,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
         <Label x:Name="label" Content="Введите новое ФИО" HorizontalAlignment="Left" Margin="70,39,0,0" VerticalAlignment="Top" Width="140"/>

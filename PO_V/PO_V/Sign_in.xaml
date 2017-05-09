@@ -10,8 +10,20 @@
     <Grid>
         <Label x:Name="label" FontSize="20" Content="Введите логин:" HorizontalAlignment="Left" Margin="175,161,0,0" VerticalAlignment="Top" Height="35" Width="150" RenderTransformOrigin="0.5,0.476"/>
         <Label x:Name="label1" FontSize="20" Content="Введите пароль:" HorizontalAlignment="Left" Margin="163,201,0,0" VerticalAlignment="Top" Height="35" Width="160"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextAlignment="Left"  Height="20" Margin="320,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <PasswordBox Name="passwordBox1" HorizontalAlignment="Left" Margin="320,210,0,0" Height="21" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextAlignment="Left"  Height="20" Margin="320,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
+        <PasswordBox Name="passwordBox1" HorizontalAlignment="Left" Margin="320,210,0,0" Height="21" VerticalAlignment="Top" Width="160">
+            <PasswordBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </PasswordBox.ToolTip>
+        </PasswordBox>
         <Button x:Name="button" FontSize="20" Content="Войти" HorizontalAlignment="Left" Margin="280,295,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="button_Click"/>
         <Label x:Name="label2" Foreground="Red" HorizontalAlignment="Left" Margin="195,270,0,0" VerticalAlignment="Top" Width="240" Height="25"/>
         <Button x:Name="button1" FontSize="20" Content="Вернуться в главное меню" HorizontalAlignment="Left" Margin="190,360,0,0" VerticalAlignment="Top" Width="280" Click="button1_Click" Height="40"/>

@@ -30,9 +30,9 @@ namespace PO_V
             string log = textBox.Text;
             if (log != "")
             {
+                a.A();
                 a.UpdateLog(log);
                 MessageBox.Show("Логин изменен!");
-                a.A();
                 this.Close();
             }
             else

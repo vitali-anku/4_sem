@@ -97,6 +97,7 @@ namespace PO_V
                     else
                     {
                         lg.Content = "Пользователь с таким логином уже существует";
+                        lg.Foreground = Brushes.Red;
                         Log.Text = "";
                         Nam.Text = "";
                         Passp.Text = "";

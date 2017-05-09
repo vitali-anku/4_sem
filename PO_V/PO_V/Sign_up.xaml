@@ -9,19 +9,55 @@
       Title="Sign_up">
     <Grid>
         <Label x:Name="label2" Content="Логин" HorizontalAlignment="Left" FontSize="20" Margin="348,50,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
-        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="20" Margin="414,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="20" Margin="414,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Любые символы, кроме букв русского алфавита</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="label1" FontSize="20" Content="ФИО" HorizontalAlignment="Left" Margin="359,91,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
-        <TextBox x:Name="Nam" HorizontalAlignment="Left" Height="20" Margin="414,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="Nam" HorizontalAlignment="Left" Height="20" Margin="414,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="label4" FontSize="20" Content="Номер паспорта" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="252,128,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Passp" HorizontalAlignment="Left" Height="20" Margin="414,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="Passp" HorizontalAlignment="Left" Height="20" Margin="414,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="label6" FontSize="20" Width="Auto" Height="Auto" Content="Номер телефона" HorizontalAlignment="Left" Margin="250,168,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="20" Margin="414,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="20" Margin="414,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Только положительные целые числа</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="label5" FontSize="20" Content="Пароль" HorizontalAlignment="Left" Margin="335,208,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
-        <PasswordBox Name="pass1" HorizontalAlignment="Left" Margin="414,220,0,0" Height="20" VerticalAlignment="Top" Width="166"/>
+        <PasswordBox Name="pass1" HorizontalAlignment="Left" Margin="414,220,0,0" Height="20" VerticalAlignment="Top" Width="166">
+            <PasswordBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </PasswordBox.ToolTip>
+        </PasswordBox>
         <Label x:Name="label" Content="Повторите пароль" FontSize="20" HorizontalAlignment="Left" Margin="234,247,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
-        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="20" Margin="414,260,0,0" VerticalAlignment="Top" Width="166"/>
+        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="20" Margin="414,260,0,0" VerticalAlignment="Top" Width="166">
+            <PasswordBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                </StackPanel>
+            </PasswordBox.ToolTip>
+        </PasswordBox>
         <Button x:Name="button" FontSize="20" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="320,375,0,0" VerticalAlignment="Top" Width="240" Height="40" RenderTransformOrigin="0.222,0" Click="button_Click"/>
-        <Label x:Name="lg" FontSize="10" HorizontalAlignment="Left" Margin="414,32,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
+        <Label x:Name="lg" FontSize="10" HorizontalAlignment="Left" Margin="320,320,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
         <Button x:Name="button1" FontSize="20"  Content="Вернуться в главное меню" HorizontalAlignment="Left" Margin="280,435,0,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="-0.387,-2.25" Height="40" Click="button1_Click"/>
         <Label x:Name="label3" Foreground="Red" HorizontalAlignment="Left" Margin="414,284,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
         <Label x:Name="label7" Foreground="Red" Height="Auto" Width="Auto" HorizontalAlignment="Left" Margin="585,179,0,0" VerticalAlignment="Top"/>

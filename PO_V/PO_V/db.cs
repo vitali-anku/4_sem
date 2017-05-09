@@ -15,13 +15,13 @@ namespace PO_V
         static string lin = @"Data Source=VITALI\SQLSERVER;
                          Initial Catalog=Kursach;
                          Integrated Security=True";
-        bool o = false, i = false;
+        bool o = false;
 
         public static string Name { get; set; }
         public static string Login { get; set; }
         public string Salt { get; set; }
         public string Number_passport { get; set; }
-        public string Phone { get; set; }
+        public static string Phone { get; set; }
         public string Hash { get; set; }
 
         static SqlConnection conn = new SqlConnection(lin);
@@ -44,12 +44,9 @@ namespace PO_V
                 }
                 else
                     o = true;
-            }
-            if (o)
-                i = true;
-        
+            }        
             conn.Close();
-            return i;
+            return o;
         }
 
         public void Reg(string login, string ful_name, string salt, string number_passport, string phone, string hash)
@@ -90,6 +87,8 @@ namespace PO_V
                         {
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
+                            Phone = myReader["phone"].ToString();
+                            Number_passport = myReader["number_passprort"].ToString();
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -120,19 +119,18 @@ namespace PO_V
         public void A()
         {
             conn.Open();
-            string str1 = string.Format("select * from _user");
+            string str1 = string.Format("select * from _user where phone = @phone");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
+                b.CommandText = "select * from _user where phone = @phone";
+                b.Parameters.AddWithValue("@phone", ReturnPhone());
+                b.ExecuteNonQuery();
                 SqlDataReader myReader = null;
                 myReader = b.ExecuteReader();
                 while (myReader.Read())
                 {
                     Login = myReader["login"].ToString();
-                    Name = myReader["ful_name"].ToString();
-                    Salt = myReader["salt"].ToString();
-                    Number_passport = myReader["number_passport"].ToString();
-                    Phone = myReader["phone"].ToString();
-                    Hash = myReader["hash"].ToString();
+                    Name = myReader["full_name"].ToString();
                 }
             }
             conn.Close();
@@ -141,10 +139,10 @@ namespace PO_V
         public void UpdateLog(string login)
         {
             conn.Open();
-            string str = string.Format("Update _user Set login=@login Where name = @name");
+            string str = string.Format("Update _user Set login=@login Where full_name = @name");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-                a.CommandText = "Update _user Set login=@login Where name = @name";
+                a.CommandText = "Update _user Set login=@login Where full_name = @name";
                 a.Parameters.AddWithValue("@login", login);
                 a.Parameters.AddWithValue("@name", ReturnName());
                 a.ExecuteNonQuery();
@@ -155,10 +153,10 @@ namespace PO_V
         public void UpdateName(string name)
         {
             conn.Open();
-            string str = string.Format("Update _user Set name = @name Where login = @login");
+            string str = string.Format("Update _user Set full_name = @name Where login = @login");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-                a.CommandText = "Update _user Set name = @name Where login = @login";
+                a.CommandText = "Update _user Set full_name = @name Where login = @login";
                 a.Parameters.AddWithValue("@login", ReturnLogin());
                 a.Parameters.AddWithValue("@name", name);
                 a.ExecuteNonQuery();
@@ -184,14 +182,26 @@ namespace PO_V
             conn.Close();
         }
 
-        public void RemovePass(string pass)
+        public void RemovePass()
         {
+            conn.Open();
 
+            string str = string.Format("delete from _user where full_name = @name");
+            using (SqlCommand a = new SqlCommand(str, conn))
+            {
+
+                a.CommandText = "delete from _user where full_name = @name";
+                a.Parameters.AddWithValue("@name", ReturnName());
+                a.ExecuteNonQuery();
+            }
+
+            conn.Close();
         }
 
         public string ReturnName()
         {
             return Name;
+
         }
 
         public string ReturnLogin()
