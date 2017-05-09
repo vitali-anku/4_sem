@@ -36,16 +36,17 @@ namespace PO_V
         {
             UpLog log = new UpLog();
             log.Show();
+            this.NavigationService.Refresh();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             EE nam = new EE();
             nam.Show();
+            this.NavigationService.Refresh();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
-
         {
             upremov.A();
             Logi.Content = "Логин: " + upremov.ReturnLogin();
@@ -56,6 +57,8 @@ namespace PO_V
         {
             RemovPass re = new RemovPass();
             re.Show();
+            upremov.A();
+            this.NavigationService.Refresh();
         }
     }
 }
