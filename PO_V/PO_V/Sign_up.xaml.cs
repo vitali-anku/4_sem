@@ -56,7 +56,6 @@ namespace PO_V
                 return;
             }
 
-
             db reg = new db();
             SaltedHash salt = new SaltedHash(pass);
 

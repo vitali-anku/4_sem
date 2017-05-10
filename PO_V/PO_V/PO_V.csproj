@@ -77,6 +77,9 @@
     <Compile Include="EE.xaml.cs">
       <DependentUpon>EE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Prib.xaml.cs">
+      <DependentUpon>Prib.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RemovPass.xaml.cs">
       <DependentUpon>RemovPass.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prib.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

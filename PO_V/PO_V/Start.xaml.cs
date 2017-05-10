@@ -23,86 +23,69 @@ namespace PO_V
 
     public partial class Start : Page
     {
-        static db n = new db();
-        public string name = n.ReturnName();
-
-
         public Start()
         {
             InitializeComponent();
             button.Content = "Ближайшие прибытия";
-            Nam.Content = name;
         }
 
-        public void Bron()
-        {
-            string lin = @"Data Source=VITALI\SQLSERVER;
-                         Initial Catalog=Kursach;
-                         Integrated Security=True";
+        //public void Bron()
+        //{
+        //    string lin = @"Data Source=VITALI\SQLSERVER;
+        //                 Initial Catalog=Kursach;
+        //                 Integrated Security=True";
 
-            string arr = string.Format("select * from BUs");
+        //    string arr = string.Format("select * from BUs");
 
-            using (SqlConnection conn = new SqlConnection(lin))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(arr, conn);
-                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                {
-                    DataTable dt = new DataTable();
+        //    using (SqlConnection conn = new SqlConnection(lin))
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand(arr, conn);
+        //        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+        //        {
+        //            DataTable dt = new DataTable();
 
-                    sda.Fill(dt);
+        //            sda.Fill(dt);
 
-                    dataGrid.ItemsSource = dt.DefaultView;
-                }
-                conn.Close();
-            }
-
-        }
-
-        public void Route()
-        {
-
-            string lin = @"Data Source=VITALI\SQLSERVER;
-                         Initial Catalog=Kursach;
-                         Integrated Security=True";
-
-            string arr = string.Format("select number, arival_point, area, region, departure_time, arrival_time from Route order by departure_time");
-
-            using (SqlConnection conn = new SqlConnection(lin))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(arr, conn);
-                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                {
-                    DataTable dt = new DataTable();
-
-                    sda.Fill(dt);
-
-                    dataGrid.ItemsSource = dt.DefaultView;
-                }
-                conn.Close();
-            }
-        }
+        //            dataGrid.ItemsSource = dt.DefaultView;
+        //        }
+        //        conn.Close();
+        //    }
+        //}
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Route();
+            Prib prib = new Prib();
+            NavigationService.Navigate(prib);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Bron();
+            //Bron();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = null;
+            //dataGrid.ItemsSource = null;
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             Settings pr = new Settings();
             NavigationService.Navigate(pr);
+        }
+
+        private void button2_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                e.Handled = false;
+            }
         }
     }
 }

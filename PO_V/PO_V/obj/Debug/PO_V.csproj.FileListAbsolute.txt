@@ -32,3 +32,5 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Prib.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Prib.baml
