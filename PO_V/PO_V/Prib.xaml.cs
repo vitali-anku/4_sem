@@ -49,8 +49,11 @@ namespace PO_V
                          Initial Catalog=Kursach;
                          Integrated Security=True";
 
-            string arr = string.Format("select arival_point[Откуда], arival_of_point[Куда], CONVERT(VARCHAR(8), arrival_time, 108)[Время прибытия]," +
-                                "path_length[длина пути] from Route where arival_of_point like '%Минск%'");
+            string arr = string.Format("select arival_point[Отправление], arival_of_point[Прибытие], data[Дата]," +
+                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
+                                                            "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
+                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where arival_of_point like 'Минск' and " +
+                                                    "departure_time> CONVERT(VARCHAR(8), DATEADD(dd , 0, getdate()), 4) order by data");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {
@@ -70,11 +73,16 @@ namespace PO_V
         private void Route()
         {
 
+            
+
             string lin = @"Data Source=VITALI\SQLSERVER;
                          Initial Catalog=Kursach;
                          Integrated Security=True";
-            string arr = string.Format("select arival_point[Откуда], arival_of_point[Куда], CONVERT(VARCHAR(8), departure_time , 108)[Время отправления]," +
-                                "CONVERT(VARCHAR(8), arrival_time, 108) [Время прибытия], path_length[длина пути] from Route where  arival_point like '%Минск%'");
+            string arr = string.Format("select arival_point[Отправление], arival_of_point[Прибытие], data[Дата]," +
+                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
+                                                            "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
+                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where arival_point like 'Минск' and " +
+                                                    "departure_time > CONVERT(VARCHAR(8), DATEADD(dd , 0, getdate()), 4) order by data");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {

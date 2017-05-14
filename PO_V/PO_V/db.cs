@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Navigation;
 using System.Data;
 
 namespace PO_V
@@ -20,8 +19,7 @@ namespace PO_V
         public static string Name { get; set; }
         public static string Login { get; set; }
         public string Salt { get; set; }
-        public string Number_passport { get; set; }
-        public static string Phone { get; set; }
+        public static string Number_passport { get; set; }
         public string Hash { get; set; }
 
         static SqlConnection conn = new SqlConnection(lin);
@@ -49,11 +47,11 @@ namespace PO_V
             return o;
         }
 
-        public void Reg(string login, string ful_name, string salt, string number_passport, string phone, string hash)
+        public void Reg(string login, string ful_name, string salt, string number_passport, string hash)
         {
             conn.Open();
             string sql = string.Format("insert Into _user" +
-                            "(login, full_name, salt, number_passprort, phone, hash) values(@login, @ful_name, @salt, @number_passport, @phone, @hash)");
+                            "(login, full_name, salt, number_passprort, hash) values(@login, @ful_name, @salt, @number_passport, @hash)");
 
             using (SqlCommand myCommand = new SqlCommand(sql, conn))
             {
@@ -61,7 +59,6 @@ namespace PO_V
                 myCommand.Parameters.AddWithValue("@ful_name", ful_name);
                 myCommand.Parameters.AddWithValue("@salt", salt);
                 myCommand.Parameters.AddWithValue("@number_passport", number_passport);
-                myCommand.Parameters.AddWithValue("@phone", phone);
                 myCommand.Parameters.AddWithValue("@hash", hash);
                 myCommand.ExecuteNonQuery();
             }
@@ -78,6 +75,7 @@ namespace PO_V
 
                 using (SqlCommand myCommand = new SqlCommand(zapros, conn))
                 {
+                    myCommand.CommandText = "Select * from _user where login = @login";
                     myCommand.Parameters.AddWithValue("@login", login);
                     myCommand.ExecuteNonQuery();
                     SqlDataReader myReader = myCommand.ExecuteReader();
@@ -87,7 +85,6 @@ namespace PO_V
                         {
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
-                            Phone = myReader["phone"].ToString();
                             Number_passport = myReader["number_passprort"].ToString();
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
@@ -119,11 +116,11 @@ namespace PO_V
         public void A()
         {
             conn.Open();
-            string str1 = string.Format("select * from _user where phone = @phone");
+            string str1 = string.Format("select * from _user where number_passprort = @number_passprort");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
-                b.CommandText = "select * from _user where phone = @phone";
-                b.Parameters.AddWithValue("@phone", ReturnPhone());
+                b.CommandText = "select * from _user where number_passprort = @number_passprort";
+                b.Parameters.AddWithValue("@number_passprort", Return_passport());
                 b.ExecuteNonQuery();
                 SqlDataReader myReader = null;
                 myReader = b.ExecuteReader();
@@ -209,14 +206,9 @@ namespace PO_V
             return Login;
         }
 
-        public string ReturnNumber_passport()
+        public string Return_passport()
         {
             return Number_passport;
-        }
-
-        public string ReturnPhone()
-        {
-            return Phone;
         }
     }
 }

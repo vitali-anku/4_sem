@@ -37,17 +37,7 @@ namespace PO_V
             string phone = Phone.Text;
             if (CheckString(log))
             {
-                if (!(ValidPhone() == s))
-                {
-                    phone = Phone.Text;
-                    log = Log.Text;
-                }
-                else
-                {
-                    label7.Content = "Невалидные данные";
-                    Phone.Text = "";
-                    return;
-                }
+                log = Log.Text;
             }
             else
             {
@@ -74,7 +64,7 @@ namespace PO_V
                         {
                             if (pass1.Password == pass2.Password)
                             {
-                                reg.Reg(log, name, sal, passport, phone, hash);
+                                reg.Reg(log, name, sal, passport, hash);
                                 MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
                                 Sign_in ni = new Sign_in();
                                 NavigationService.Navigate(ni);
@@ -133,7 +123,7 @@ namespace PO_V
                 for (int i = 0; i < a; ++i)
                 {
                     char p = str[i];
-                    if ((p >= 'а') && (p <= 'я') || (p >= 'А') && (p <= 'Я'))
+                    if ((p >= 'а') && (p <= 'я') || (p >= 'А') && (p <= 'Я') || p == ' ')
                     {
                         return y = false;
                     }
@@ -144,39 +134,6 @@ namespace PO_V
                 }
             }
             return y;
-        }
-
-        private string ValidPhone()
-        {
-            string o;
-            try
-            {
-                if (Phone.Text.Length < 20)
-                {
-                    if (Int32.Parse(Phone.Text) > 0)
-                    {
-                        label7.Content = "";
-                        o = "";
-                    }
-                    else
-                    {
-                        label7.Content = "Невалидные данные";
-                        Phone.Text = "";
-                        o = "Error";
-                    }
-                }
-                else
-                {
-                    label7.Content = "Слишком длинный номер";
-                    Phone.Text = "";
-                    o = "Error";
-                }
-            }
-            catch (Exception)
-            {
-                o="Error";
-            }
-            return o;
         }
     }
 }

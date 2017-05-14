@@ -28,7 +28,6 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             db re = new db();
-            MessageBox.Show(re.ReturnPhone());
             string pas = textBox.Password;
             string log = textBox1.Text;
             pass1.Content = "";

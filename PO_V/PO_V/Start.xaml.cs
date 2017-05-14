@@ -29,30 +29,6 @@ namespace PO_V
             button.Content = "Ближайшие прибытия";
         }
 
-        //public void Bron()
-        //{
-        //    string lin = @"Data Source=VITALI\SQLSERVER;
-        //                 Initial Catalog=Kursach;
-        //                 Integrated Security=True";
-
-        //    string arr = string.Format("select * from BUs");
-
-        //    using (SqlConnection conn = new SqlConnection(lin))
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand(arr, conn);
-        //        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-        //        {
-        //            DataTable dt = new DataTable();
-
-        //            sda.Fill(dt);
-
-        //            dataGrid.ItemsSource = dt.DefaultView;
-        //        }
-        //        conn.Close();
-        //    }
-        //}
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Prib prib = new Prib();
@@ -71,6 +47,8 @@ namespace PO_V
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
+            db a = new db();
+            MessageBox.Show(a.Return_passport());
             Settings pr = new Settings();
             NavigationService.Navigate(pr);
         }
