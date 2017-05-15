@@ -39,7 +39,8 @@ namespace PO_V
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            
+            Booking0 book = new Booking0();
+            NavigationService.Navigate(book);
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
