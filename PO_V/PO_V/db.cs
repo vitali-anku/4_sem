@@ -21,9 +21,13 @@ namespace PO_V
         public string Salt { get; set; }
         public static string Number_passport { get; set; }
         public string Hash { get; set; }
+        public static string Number_route { get; set; }
+        public static string Number_user { get; set; }
+        public static int Number_of_places { get; set; }
+        public static int Number_bus { get; set; }
 
         static SqlConnection conn = new SqlConnection(lin);
-        
+
         public bool Vald(string l)
         {
             conn.Open();
@@ -42,7 +46,7 @@ namespace PO_V
                 }
                 else
                     o = true;
-            }        
+            }
             conn.Close();
             return o;
         }
@@ -68,7 +72,7 @@ namespace PO_V
         public bool Sign_in(string login, string pass)
         {
             conn.Open();
-            
+
             try
             {
                 string zapros = string.Format("Select * from _user where login = @login");
@@ -80,12 +84,13 @@ namespace PO_V
                     myCommand.ExecuteNonQuery();
                     SqlDataReader myReader = myCommand.ExecuteReader();
                     if (myReader.HasRows)
-                    { 
+                    {
                         while (myReader.Read())
                         {
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
                             Number_passport = myReader["number_passprort"].ToString();
+                            Number_user = myReader["number_user"].ToString();
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -104,7 +109,7 @@ namespace PO_V
 
             }
 
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -128,6 +133,7 @@ namespace PO_V
                 {
                     Login = myReader["login"].ToString();
                     Name = myReader["full_name"].ToString();
+                    Number_user = myReader["number_user"].ToString();
                 }
             }
             conn.Close();
@@ -195,6 +201,79 @@ namespace PO_V
             conn.Close();
         }
 
+        public bool Ticket(string arival_point, string data)
+        {
+            conn.Open();
+            string str1 = string.Format("select * from Route where arival_point = @arival_point and data = @data");
+            using (SqlCommand b = new SqlCommand(str1, conn))
+            {
+                b.CommandText = "select * from Route where arival_point = @arival_point and data = @data";
+                b.Parameters.AddWithValue("@arival_point", arival_point);
+                b.Parameters.AddWithValue("@data", data);
+                b.ExecuteNonQuery();
+
+                SqlDataReader myReader = null;
+                myReader = b.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        o = true;
+                        Number_route = myReader["number_route"].ToString();
+                    }
+                }
+                else
+                {
+                    o = false;
+                }
+            }
+            conn.Close();
+            return o;
+        }
+
+        public bool Bron()
+        {
+            conn.Open();
+            string sql = string.Format("insert Into Ticket" +
+                            "(number_route, number_user) values(@number_route, @number_user)");
+            string sql1 = string.Format("select number_of_places from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route");
+            string sql2 = string.Format("Update Bus Set number_of_places = @number_of_places where number_route = @number_route");
+
+            using (SqlCommand myCommand = new SqlCommand(sql1, conn))
+            {
+                myCommand.CommandText = "select * from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route";
+                myCommand.Parameters.AddWithValue("@number_route", Number_route);
+                myCommand.ExecuteNonQuery();
+                SqlDataReader myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    Number_of_places = (int)myReader["number_of_places"];
+                    Number_bus = (int)myReader["number_bus"];
+                }
+                myReader.Close();
+                if (Number_of_places > 0)
+                {
+                    o = true;
+                    using (SqlCommand my = new SqlCommand(sql, conn))
+                    {
+                        my.Parameters.AddWithValue("@number_route", Number_route);
+                        my.Parameters.AddWithValue("@number_user", Number_user);
+                        my.ExecuteNonQuery();
+                    }
+                    using (SqlCommand bronir = new SqlCommand(sql2, conn))
+                    {
+                        bronir.CommandText = "Update Bus Set number_of_places = @number_of_places where number_bus = @number_bus";
+                        bronir.Parameters.AddWithValue("@number_bus", Number_bus);
+                        bronir.Parameters.AddWithValue("@number_of_places", Number_of_places-1);
+                        bronir.ExecuteNonQuery();
+                    }
+                }
+                else { o = false; }
+            }
+            conn.Close();
+            return o;
+        }
+
         public string ReturnName()
         {
             return Name;
@@ -209,6 +288,11 @@ namespace PO_V
         public string Return_passport()
         {
             return Number_passport;
+        }
+
+        public string ReturnRoute()
+        {
+            return Number_route;
         }
     }
 }

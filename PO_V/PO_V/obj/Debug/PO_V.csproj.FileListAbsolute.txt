@@ -30,7 +30,11 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpLog.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\UpName.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\RemovPass.baml
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.g.cs
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Button.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Prib.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Prib.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking1.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking1.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking2.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking2.baml
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\BookingEnd.g.cs
+D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\BookingEnd.baml

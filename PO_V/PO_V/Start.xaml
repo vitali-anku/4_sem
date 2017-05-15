@@ -11,8 +11,9 @@
 
     <Grid>
         <Button x:Name="button" Content="Близжайшие автобусы" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" Width="170" Click="button_Click" />
-        <Button x:Name="button1" Content="Забронированные биллеты" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top" Width="170" Click="button1_Click"/>
-        <Button x:Name="button3" Content="Настройка" HorizontalAlignment="Left" Margin="440,40,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
-        <Button x:Name="button2" Content="Выйти" HorizontalAlignment="Left" Margin="705,20,0,0" KeyDown="OnKeyDownHandler" VerticalAlignment="Top" Width="75" Click="button2_Click_1"/>
+        <Button x:Name="button4" Content="Забронировать биллет" HorizontalAlignment="Left" Margin="215,40,0,0" VerticalAlignment="Top" Width="Auto" Click="button4_Click"/>
+        <Button x:Name="button1" Content="Забронированные биллеты" HorizontalAlignment="Left" Margin="365,40,0,0" VerticalAlignment="Top" Width="170" Click="button1_Click"/>
+        <Button x:Name="button3" Content="Настройка" HorizontalAlignment="Left" Margin="555,40,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
+        <Button x:Name="button2" Content="Выйти" HorizontalAlignment="Left" Margin="650,40,0,0" KeyDown="OnKeyDownHandler" VerticalAlignment="Top" Width="75" Click="button2_Click_1"/>
     </Grid>
 </Page>

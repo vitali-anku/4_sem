@@ -38,7 +38,6 @@ namespace PO_V
                 NavigationService.Navigate(a);
                 textBox.Text = "";
                 passwordBox1.Password = "";
-                MessageBox.Show(d.Return_passport());
             }
             else
             {

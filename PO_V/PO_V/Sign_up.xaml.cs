@@ -27,7 +27,7 @@ namespace PO_V
             lg.Content = "Логин не должен содержать буквы русского алфавита";
             lg.Foreground = Brushes.White;
         }
-        private string s = "Error";
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string log = Log.Text;

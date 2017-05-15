@@ -29,6 +29,8 @@ namespace PO_V
             button.Content = "Ближайшие прибытия";
         }
 
+        db a = new db();
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Prib prib = new Prib();
@@ -37,18 +39,11 @@ namespace PO_V
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            //Bron();
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            //dataGrid.ItemsSource = null;
+            
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            db a = new db();
-            MessageBox.Show(a.Return_passport());
             Settings pr = new Settings();
             NavigationService.Navigate(pr);
         }
@@ -64,6 +59,18 @@ namespace PO_V
             {
                 e.Handled = false;
             }
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            Booking1 booking = new Booking1();
+            NavigationService.Navigate(booking);
+        }
+
+
+        public void Bron()
+        {
+
         }
     }
 }

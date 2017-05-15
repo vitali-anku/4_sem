@@ -71,8 +71,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Button.xaml.cs">
-      <DependentUpon>Button.xaml</DependentUpon>
+    <Compile Include="Booking1.xaml.cs">
+      <DependentUpon>Booking1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Booking2.xaml.cs">
+      <DependentUpon>Booking2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookingEnd.xaml.cs">
+      <DependentUpon>BookingEnd.xaml</DependentUpon>
     </Compile>
     <Compile Include="EE.xaml.cs">
       <DependentUpon>EE.xaml</DependentUpon>
@@ -102,7 +108,15 @@
     <Compile Include="UpName.xaml.cs">
       <DependentUpon>UpName.xaml</DependentUpon>
     </Compile>
-    <Page Include="Button.xaml">
+    <Page Include="Booking1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Booking2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookingEnd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
