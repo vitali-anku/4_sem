@@ -9,7 +9,15 @@
       Title="BookingEnd">
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFDFAFA" Offset="0"/>
+                <GradientStop Color="#FF8596D3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label x:Name="label" FontSize="60" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Height="105" Width="Auto"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="150,260,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="Забронировать" FontSize="20" HorizontalAlignment="Left" Margin="474,357,0,0" VerticalAlignment="Top" Width="166" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button1" Content="Главное меню" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button2" Content="Назад" FontSize="20" HorizontalAlignment="Left" Margin="195,357,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" Height="31" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

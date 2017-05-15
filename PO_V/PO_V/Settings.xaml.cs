@@ -61,5 +61,10 @@ namespace PO_V
             upremov.A();
             this.NavigationService.Refresh();
         }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

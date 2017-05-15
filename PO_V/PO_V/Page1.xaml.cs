@@ -39,5 +39,10 @@ namespace PO_V
             Sign_up registr = new Sign_up();
             NavigationService.Navigate(registr);
         }
+
+        private void button_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

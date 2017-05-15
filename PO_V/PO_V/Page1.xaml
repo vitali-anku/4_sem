@@ -9,7 +9,10 @@
       Title="Page1">
 
     <Grid>
-        <Button x:Name="button" FontSize="24" Background="White" BorderThickness="0"  Content="Sign in" Click="buttonClick" HorizontalAlignment="Stretch" Margin="260,260,245,0" VerticalAlignment="Top" RenderTransformOrigin="0.933,0.5" Height="65"/>
-        <Button x:Name="button1" FontSize="24" Background="White" BorderThickness="0" Content="Sign up" HorizontalAlignment="Stretch" Margin="260,365,245,0" VerticalAlignment="Top" Height="65" Click="button1_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\kr\3.jpg"/>
+        </Grid.Background>
+        <Button x:Name="button" FontSize="24" Foreground="#FF0D2323"  Background="#FFC2CEEE" BorderThickness="0"  Content="Вход" Click="buttonClick" HorizontalAlignment="Stretch" Margin="320,330,285,0" VerticalAlignment="Top" RenderTransformOrigin="0.933,0.5" Height="65" FontFamily="News701 BT" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button1" FontSize="24" Foreground="#FF0D2323" Background="#FFC2CEEE" BorderThickness="0" Content="Регистрация" HorizontalAlignment="Stretch" Margin="320,440,285,0" VerticalAlignment="Top" Height="65" Click="button1_Click" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

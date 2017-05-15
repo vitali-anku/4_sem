@@ -9,13 +9,19 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <PasswordBox x:Name="pass1" HorizontalAlignment="Left" Height="23" Margin="195,45,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="23" Margin="195,90,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Введите старый пароль" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Введите новый пароль" HorizontalAlignment="Left" Margin="43,87,0,0" VerticalAlignment="Top"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFDFAFA" Offset="0"/>
+                <GradientStop Color="#FF8596D3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <PasswordBox x:Name="pass1" HorizontalAlignment="Left" Height="23" Margin="195,45,0,0" VerticalAlignment="Top" Width="145"/>
+        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="23" Margin="195,90,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="label" Content="Введите старый пароль" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Введите новый пароль" HorizontalAlignment="Left" Margin="43,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="pa1" Foreground="Red" HorizontalAlignment="Left" Margin="320,50,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="-12.9,1.5"/>
         <Label x:Name="pa2" Foreground="Red" HorizontalAlignment="Left" Margin="320,95,0,0" VerticalAlignment="Top" Width="Auto" Height="Auto" />
-        <Button x:Name="button" Content="Изменить пароль" HorizontalAlignment="Left" Margin="185,160,0,0" VerticalAlignment="Top" Width="120" Click="button_Click_1"/>
-        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="185,200,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
+        <Button x:Name="button" Content="Изменить пароль" HorizontalAlignment="Left" Margin="195,155,0,0" VerticalAlignment="Top" Width="120" Click="button_Click_1" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
+        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="195,190,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
     </Grid>
 </Window>

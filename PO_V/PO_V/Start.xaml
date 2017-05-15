@@ -10,10 +10,13 @@
       Title="Start">
 
     <Grid>
-        <Button x:Name="button" Content="Близжайшие автобусы" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" Width="170" Click="button_Click" />
-        <Button x:Name="button4" Content="Забронировать биллет" HorizontalAlignment="Left" Margin="215,40,0,0" VerticalAlignment="Top" Width="Auto" Click="button4_Click"/>
-        <Button x:Name="button1" Content="Забронированные биллеты" HorizontalAlignment="Left" Margin="365,40,0,0" VerticalAlignment="Top" Width="170" Click="button1_Click"/>
-        <Button x:Name="button3" Content="Настройка" HorizontalAlignment="Left" Margin="555,40,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
-        <Button x:Name="button2" Content="Выйти" HorizontalAlignment="Left" Margin="650,40,0,0" KeyDown="OnKeyDownHandler" VerticalAlignment="Top" Width="75" Click="button2_Click_1"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\kr\10.jpg"/>
+        </Grid.Background>
+        <Button x:Name="button" Content="Ближайшие автобусы" FontSize="18" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="215" Click="button_Click" Height="50" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7" />
+        <Button x:Name="button4" Content="Забронировать билет" FontSize="18" HorizontalAlignment="Left" Margin="265,40,0,0" VerticalAlignment="Top" Width="220" Click="button4_Click" Height="50" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>
+        <Button x:Name="button1" Content="Забронированные билеты" FontSize="18" HorizontalAlignment="Left" Margin="515,40,0,0" VerticalAlignment="Top" Width="260" Click="button1_Click" Height="50" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7"/>
+        <Button x:Name="button3" Content="Настройка" FontSize="18" HorizontalAlignment="Left" Margin="645,465,0,0" VerticalAlignment="Top" Width="130" Click="button3_Click" Height="35" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7"/>
+        <Button x:Name="button2" Content="Выйти" FontSize="18" HorizontalAlignment="Left" Margin="645,505,0,0" KeyDown="OnKeyDownHandler" VerticalAlignment="Top" Width="130" Click="button2_Click_1" Height="35" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7"/>
     </Grid>
 </Page>

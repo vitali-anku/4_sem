@@ -53,5 +53,10 @@ namespace PO_V
                 conn.Close();
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

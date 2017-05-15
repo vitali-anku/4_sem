@@ -40,5 +40,10 @@ namespace PO_V
         {
             return Item;
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

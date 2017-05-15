@@ -9,7 +9,14 @@
       Title="Booking2">
 
     <Grid>
-        <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="321,160,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="155,220,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFDFAFA" Offset="0"/>
+                <GradientStop Color="#FF8596D3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="button1" Content="Назад" FontSize="20" HorizontalAlignment="Left" Margin="180,255,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="301,197,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Далее" FontSize="20" HorizontalAlignment="Left" Margin="515,255,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" />
     </Grid>
 </Page>

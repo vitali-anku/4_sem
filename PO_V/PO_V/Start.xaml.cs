@@ -50,8 +50,9 @@ namespace PO_V
         }
 
         private void button2_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
+        { 
+            Page1 glavn = new Page1();
+            NavigationService.Navigate(glavn);
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)

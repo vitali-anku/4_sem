@@ -9,12 +9,19 @@
       Title="Settings">
 
     <Grid>
-        <Button x:Name="button1" BorderBrush="Transparent" Content="Обновить данные" HorizontalAlignment="Left" Margin="235,60,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Height="Auto" Foreground="#FF080101" Background="#FF999090" />
-        <Button x:Name="button" Content="Изменить имя" HorizontalAlignment="Left" Margin="200,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="button_Click" />
-        <Button x:Name="Log" Content="Изменить логин" HorizontalAlignment="Left" Margin="200,165,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="Log_Click"/>
-        <Button x:Name="button2" Content="Изменить пароль" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Удалить аккаунт" HorizontalAlignment="Left" Margin="200,255,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="1.8,-1.75" Height="30" Click="button3_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FF8596D3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="button1" BorderBrush="#FFCBC7C7" Content="Обновить данные" FontSize="20" HorizontalAlignment="Left" Margin="325,140,0,0" VerticalAlignment="Top" Width="195" Click="button1_Click" Height="35" Foreground="#FF0D2323" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" />
+        <Button x:Name="button" Content="Изменить имя" FontSize="20" HorizontalAlignment="Left" Margin="100,245,0,0" VerticalAlignment="Top" Width="155" Height="30" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" />
+        <Button x:Name="Log" Content="Изменить логин" FontSize="20" HorizontalAlignment="Left" Margin="330,245,0,0" VerticalAlignment="Top" Width="180" Height="30" Click="Log_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button2" Content="Изменить пароль" FontSize="20" HorizontalAlignment="Left" Margin="560,245,0,0" VerticalAlignment="Top" Width="200" Height="30" Click="button2_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button3" Content="Удалить аккаунт" FontSize="20" HorizontalAlignment="Left" Margin="330,350,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="1.8,-1.75" Height="30" Click="button3_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
         <Label x:Name="Logi" HorizontalAlignment="Left" Margin="350,75,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Label x:Name="Name" HorizontalAlignment="Left" Margin="350,40,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Button x:Name="button4" Content="Назад" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button4_Click" Height="25" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

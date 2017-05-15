@@ -39,5 +39,16 @@ namespace PO_V
                 label.Content = "Нет свободных мест";
             }
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Start glavn = new Start();
+            NavigationService.Navigate(glavn);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

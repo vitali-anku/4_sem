@@ -30,7 +30,7 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Day = calendar.SelectedDate.ToString();
-            if (int.Parse(Day.Substring(0, Day.Length - 16)) >= DateTime.Today.Day)
+            if (int.Parse(Day.Substring(0, Day.Length - 16)) >= DateTime.Today.Day && Day.Length > 0)
             {
                 Day = Day.Substring(0, Day.Length - 13);
                 db rout = new db();
@@ -48,6 +48,11 @@ namespace PO_V
         public string ReturnDay()
         {
             return Day;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }
