@@ -125,7 +125,7 @@ namespace PO_V
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
                 b.CommandText = "select * from _user where number_passprort = @number_passprort";
-                b.Parameters.AddWithValue("@number_passprort", Return_passport());
+                b.Parameters.AddWithValue("@number_passprort", Number_passport);
                 b.ExecuteNonQuery();
                 SqlDataReader myReader = null;
                 myReader = b.ExecuteReader();
@@ -147,7 +147,7 @@ namespace PO_V
             {
                 a.CommandText = "Update _user Set login=@login Where full_name = @name";
                 a.Parameters.AddWithValue("@login", login);
-                a.Parameters.AddWithValue("@name", ReturnName());
+                a.Parameters.AddWithValue("@name", Name);
                 a.ExecuteNonQuery();
             }
             conn.Close();
@@ -160,7 +160,7 @@ namespace PO_V
             using (SqlCommand a = new SqlCommand(str, conn))
             {
                 a.CommandText = "Update _user Set full_name = @name Where login = @login";
-                a.Parameters.AddWithValue("@login", ReturnLogin());
+                a.Parameters.AddWithValue("@login", Login);
                 a.Parameters.AddWithValue("@name", name);
                 a.ExecuteNonQuery();
             }
@@ -178,7 +178,7 @@ namespace PO_V
                 a.CommandText = "Update _user Set salt = @salt, hash = @hash Where login = @login";
                 a.Parameters.AddWithValue("@salt", salt);
                 a.Parameters.AddWithValue("@hash", hash);
-                a.Parameters.AddWithValue("@login", ReturnLogin());
+                a.Parameters.AddWithValue("@login", Login);
                 a.ExecuteNonQuery();
             }
 
@@ -194,7 +194,7 @@ namespace PO_V
             {
 
                 a.CommandText = "delete from _user where full_name = @name";
-                a.Parameters.AddWithValue("@name", ReturnName());
+                a.Parameters.AddWithValue("@name", Name);
                 a.ExecuteNonQuery();
             }
 
@@ -272,27 +272,6 @@ namespace PO_V
             }
             conn.Close();
             return o;
-        }
-
-        public string ReturnName()
-        {
-            return Name;
-
-        }
-
-        public string ReturnLogin()
-        {
-            return Login;
-        }
-
-        public string Return_passport()
-        {
-            return Number_passport;
-        }
-
-        public string ReturnRoute()
-        {
-            return Number_route;
         }
     }
 }

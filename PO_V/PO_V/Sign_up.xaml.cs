@@ -34,7 +34,6 @@ namespace PO_V
             string name = Nam.Text;
             string pass = pass1.Password;
             string passport = Passp.Text;
-            string phone = Phone.Text;
             if (CheckString(log))
             {
                 log = Log.Text;
@@ -55,7 +54,7 @@ namespace PO_V
             try
             {
                 if (!string.IsNullOrEmpty(Log.Text) && !string.IsNullOrEmpty(Nam.Text) && !string.IsNullOrEmpty(pass1.Password)
-                    && !string.IsNullOrEmpty(Passp.Text) && !string.IsNullOrEmpty(Phone.Text))
+                    && !string.IsNullOrEmpty(Passp.Text))
                 {
                     if (reg.Vald(log))
                     {
@@ -90,7 +89,6 @@ namespace PO_V
                         Log.Text = "";
                         Nam.Text = "";
                         Passp.Text = "";
-                        Phone.Text = "";
                         pass1.Password = "";
                         pass2.Password = "";
                         label3.Content = "";

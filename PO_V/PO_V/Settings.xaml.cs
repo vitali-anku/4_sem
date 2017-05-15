@@ -20,11 +20,12 @@ namespace PO_V
     /// </summary>
     public partial class Settings : Page
     {
-        static db upremov = new db();
         public Settings()
         {
             InitializeComponent();
         }
+
+        db upremov = new db();
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,8 +50,8 @@ namespace PO_V
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             upremov.A();
-            Logi.Content = "Логин: " + upremov.ReturnLogin();
-            Name.Content = "ФИО: " + upremov.ReturnName();
+            Logi.Content = "Логин: " + db.Login;
+            Name.Content = "ФИО: " + db.Name;
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)

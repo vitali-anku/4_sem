@@ -23,13 +23,13 @@ namespace PO_V
         {
             InitializeComponent();
         }
-        static db a = new db();
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
+            db a = new db();
             string pass = pass1.Password;
             string new_pass = pass2.Password;
-            string login = a.ReturnLogin();
+            string login = db.Login;
             SaltedHash password = new SaltedHash(new_pass);
             string salt = password.Salt;
             string hash = password.Hash;

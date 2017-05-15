@@ -52,6 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Atrib.cs" />
+    <Compile Include="Atribut.xaml.cs">
+      <DependentUpon>Atribut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Booking0.xaml.cs">
       <DependentUpon>Booking0.xaml</DependentUpon>
     </Compile>
@@ -86,6 +91,7 @@
     <Compile Include="EE.xaml.cs">
       <DependentUpon>EE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
     <Compile Include="Prib.xaml.cs">
       <DependentUpon>Prib.xaml</DependentUpon>
     </Compile>
@@ -111,6 +117,10 @@
     <Compile Include="UpName.xaml.cs">
       <DependentUpon>UpName.xaml</DependentUpon>
     </Compile>
+    <Page Include="Atribut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Booking0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
