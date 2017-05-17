@@ -40,5 +40,3 @@ D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\BookingEnd.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\BookingEnd.baml
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking0.g.cs
 D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Booking0.baml
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Atribut.g.cs
-D:\visual_studio\ООП\PO_V\PO_V\obj\Debug\Atribut.baml

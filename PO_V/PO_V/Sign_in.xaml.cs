@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,23 +28,28 @@ namespace PO_V
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string log = textBox.Text;
-            string pass = passwordBox1.Password;
+            Login lo = new Login
+            {
+                Log = textBox.Text,
+                Pass = passwordBox1.Password
+            };
              
             db d = new db();
-            if (!string.IsNullOrEmpty(textBox.Text) && !string.IsNullOrEmpty(passwordBox1.Password) && d.Sign_in(log, pass))
-            {
-                Start a = new Start();
 
-                NavigationService.Navigate(a);
-                textBox.Text = "";
-                passwordBox1.Password = "";
-            }
-            else
+            if (Validate.Valid(lo))
             {
-                label2.Content = "Введен неверный логин или пароль";
-                textBox.Text = "";
-                passwordBox1.Password = "";
+                if (d.Sign_in(lo.Log, lo.Pass))
+                {
+                    Start a = new Start();
+                    NavigationService.Navigate(a);
+                    textBox.Text = "";
+                }
+                else
+                {
+                    label2.Content = "Введен неверный логин или пароль";
+                    textBox.Text = "";
+                    passwordBox1.Password = "";
+                }
             }
         }
 

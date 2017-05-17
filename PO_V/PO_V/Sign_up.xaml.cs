@@ -24,79 +24,41 @@ namespace PO_V
         public Sign_up()
         {
             InitializeComponent();
-            lg.Content = "Логин не должен содержать буквы русского алфавита";
-            lg.Foreground = Brushes.White;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string log = Log.Text;
-            string name = Nam.Text;
-            string pass = pass1.Password;
-            string passport = Passp.Text;
-            if (CheckString(log))
+            Registr reg = new Registr
             {
-                log = Log.Text;
-            }
-            else
-            {
-                lg.Content = "Логин не должен содержать буквы русского алфавита";
-                lg.Foreground = Brushes.Red;
-                return;
-            }
+                Log = Log.Text,
+                FullName = Nam.Text,
+                NumberPassport = Passp.Text,
+                Password = pass1.Password,
+                PasswordConfirm = pass2.Password
+            };
 
-            db reg = new db();
-            SaltedHash salt = new SaltedHash(pass);
-
-            string hash = salt.Hash;
-            string sal = salt.Salt;
+            db re = new db();
 
             try
             {
-                if (!string.IsNullOrEmpty(Log.Text) && !string.IsNullOrEmpty(Nam.Text) && !string.IsNullOrEmpty(pass1.Password)
-                    && !string.IsNullOrEmpty(Passp.Text))
+                if (Validate.Valid(reg))
                 {
-                    if (reg.Vald(log))
+                    SaltedHash salt = new SaltedHash(reg.Password);
+
+                    string hash = salt.Hash;
+                    string sal = salt.Salt;
+
+                    if (re.Vald(reg.Log))
                     {
-                        lg.Content = "";
-                        if (CheckString(pass))
-                        {
-                            if (pass1.Password == pass2.Password)
-                            {
-                                reg.Reg(log, name, sal, passport, hash);
-                                MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
-                                Sign_in ni = new Sign_in();
-                                NavigationService.Navigate(ni);
-                            }
-                            else
-                            {
-                                pass2.Password = "";
-                                pass1.Password = "";
-                                label8.Content = "";
-                                label3.Content = "Пароли не совпадают";
-                            }
-                        }
-                        else
-                        {
-                            label8.Content = "Встречаются русские символы";
-                            return;
-                        }
+                        re.Reg(reg.Log, reg.FullName, sal, reg.Password, hash);
+                        MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
+                        Sign_in ni = new Sign_in();
+                        NavigationService.Navigate(ni);
                     }
                     else
                     {
-                        lg.Content = "Пользователь с таким логином уже существует";
-                        lg.Foreground = Brushes.Red;
-                        Log.Text = "";
-                        Nam.Text = "";
-                        Passp.Text = "";
-                        pass1.Password = "";
-                        pass2.Password = "";
-                        label3.Content = "";
+                        MessageBox.Show("Такой user существует");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Заполните все поля для регистрации");
                 }
                     
             }
@@ -109,29 +71,6 @@ namespace PO_V
         {
             Page1 start = new Page1();
             NavigationService.Navigate(start);
-        }
-
-        private bool CheckString(string str)
-        {
-            bool y = false;
-            int a = str.Length;
-            if (a < 255 && a!=0)
-            {
-                lg.Content = "";
-                for (int i = 0; i < a; ++i)
-                {
-                    char p = str[i];
-                    if ((p >= 'а') && (p <= 'я') || (p >= 'А') && (p <= 'Я') || p == ' ')
-                    {
-                        return y = false;
-                    }
-                    else
-                    {
-                        y = true;
-                    }
-                }
-            }
-            return y;
         }
     }
 }

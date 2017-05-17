@@ -23,19 +23,21 @@ namespace PO_V
         {
             InitializeComponent();
         }
-        static db upremov = new db();
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string nam = textBox.Text;
-            if (nam != "")
+            db upremov = new db();
+            UpdateName a = new UpdateName
+            {
+                FullName = textBox.Text
+            };
+            if (Validate.Valid(a))
             {
                 upremov.A();
-                upremov.UpdateName(nam);
+                upremov.UpdateName(a.FullName);
                 MessageBox.Show("ФИО изменено");
                 this.Close();
             }
-            else
-                lab.Content = "Заполните поле";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

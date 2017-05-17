@@ -11,9 +11,12 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="D:\kr\10.jpg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFBF1F1"/>
+                <GradientStop Color="#FF8596D3" Offset="0.996"/>
+            </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button" Content="Ближайшие автобусы" FontSize="18" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="215" Click="button_Click" Height="50" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7" />
+        <Button x:Name="button" Content="Информация" FontSize="18" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="215" Click="button_Click" Height="50" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7" />
         <Button x:Name="button4" Content="Забронировать билет" FontSize="18" HorizontalAlignment="Left" Margin="265,40,0,0" VerticalAlignment="Top" Width="220" Click="button4_Click" Height="50" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>
         <Button x:Name="button1" Content="Забронированные билеты" FontSize="18" HorizontalAlignment="Left" Margin="515,40,0,0" VerticalAlignment="Top" Width="260" Click="button1_Click" Height="50" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7"/>
         <Button x:Name="button3" Content="Настройка" FontSize="18" HorizontalAlignment="Left" Margin="645,465,0,0" VerticalAlignment="Top" Width="130" Click="button3_Click" Height="35" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7"/>

@@ -26,7 +26,6 @@ namespace PO_V
         public Start()
         {
             InitializeComponent();
-            button.Content = "Ближайшие прибытия";
         }
 
         db a = new db();

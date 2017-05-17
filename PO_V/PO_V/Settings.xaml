@@ -15,7 +15,7 @@
                 <GradientStop Color="#FF8596D3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button1" BorderBrush="#FFCBC7C7" Content="Обновить данные" FontSize="20" HorizontalAlignment="Left" Margin="325,140,0,0" VerticalAlignment="Top" Width="195" Click="button1_Click" Height="35" Foreground="#FF0D2323" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" />
+        <Button x:Name="button1" BorderBrush="#FFCBC7C7" Content="Посмотреть ФИО и логин" FontSize="20" HorizontalAlignment="Left" Margin="325,140,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Height="35" Foreground="#FF0D2323" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic" />
         <Button x:Name="button" Content="Изменить имя" FontSize="20" HorizontalAlignment="Left" Margin="100,245,0,0" VerticalAlignment="Top" Width="155" Height="30" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" />
         <Button x:Name="Log" Content="Изменить логин" FontSize="20" HorizontalAlignment="Left" Margin="330,245,0,0" VerticalAlignment="Top" Width="180" Height="30" Click="Log_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
         <Button x:Name="button2" Content="Изменить пароль" FontSize="20" HorizontalAlignment="Left" Margin="560,245,0,0" VerticalAlignment="Top" Width="200" Height="30" Click="button2_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>

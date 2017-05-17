@@ -20,8 +20,7 @@
         <Label x:Name="label" Content="Введите старый пароль" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="label1" Content="Введите новый пароль" HorizontalAlignment="Left" Margin="43,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="pa1" Foreground="Red" HorizontalAlignment="Left" Margin="320,50,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="-12.9,1.5"/>
-        <Label x:Name="pa2" Foreground="Red" HorizontalAlignment="Left" Margin="320,95,0,0" VerticalAlignment="Top" Width="Auto" Height="Auto" />
-        <Button x:Name="button" Content="Изменить пароль" HorizontalAlignment="Left" Margin="195,155,0,0" VerticalAlignment="Top" Width="120" Click="button_Click_1" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
-        <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="195,190,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
+        <Button x:Name="button" IsDefault="True" Content="Изменить пароль" HorizontalAlignment="Left" Margin="195,155,0,0" VerticalAlignment="Top" Width="120" Click="button_Click_1" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
+        <Button x:Name="button1" IsCancel="True" Content="Закрыть окно" HorizontalAlignment="Left" Margin="195,190,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click" FontWeight="Bold" FontStyle="Italic" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323"/>
     </Grid>
 </Window>

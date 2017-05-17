@@ -27,16 +27,18 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             db a = new db();
-            string log = textBox.Text;
-            if (log != "")
+            UpdateLogin up = new UpdateLogin
+            {
+                Log = textBox.Text
+            };
+
+            if (Validate.Valid(up))
             {
                 a.A();
-                a.UpdateLog(log);
+                a.UpdateLog(up.Log);
                 MessageBox.Show("Логин изменен!");
                 this.Close();
             }
-            else
-                label.Content = "Введите значение в поле";
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

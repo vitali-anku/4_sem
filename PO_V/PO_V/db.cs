@@ -87,6 +87,7 @@ namespace PO_V
                     {
                         while (myReader.Read())
                         {
+                            Login = myReader["login"].ToString();
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
                             Number_passport = myReader["number_passprort"].ToString();
@@ -106,7 +107,6 @@ namespace PO_V
                         o = false;
                     }
                 }
-
             }
 
             catch (Exception e)
@@ -121,11 +121,11 @@ namespace PO_V
         public void A()
         {
             conn.Open();
-            string str1 = string.Format("select * from _user where number_passprort = @number_passprort");
+            string str1 = string.Format("select * from _user where login = @login");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
-                b.CommandText = "select * from _user where number_passprort = @number_passprort";
-                b.Parameters.AddWithValue("@number_passprort", Number_passport);
+                b.CommandText = "select * from _user where login = @login";
+                b.Parameters.AddWithValue("@login", Login);
                 b.ExecuteNonQuery();
                 SqlDataReader myReader = null;
                 myReader = b.ExecuteReader();
@@ -218,8 +218,8 @@ namespace PO_V
                 {
                     while (myReader.Read())
                     {
-                        o = true;
                         Number_route = myReader["number_route"].ToString();
+                        o = true;
                     }
                 }
                 else
@@ -253,7 +253,6 @@ namespace PO_V
                 myReader.Close();
                 if (Number_of_places > 0)
                 {
-                    o = true;
                     using (SqlCommand my = new SqlCommand(sql, conn))
                     {
                         my.Parameters.AddWithValue("@number_route", Number_route);
@@ -267,6 +266,7 @@ namespace PO_V
                         bronir.Parameters.AddWithValue("@number_of_places", Number_of_places-1);
                         bronir.ExecuteNonQuery();
                     }
+                    o = true;
                 }
                 else { o = false; }
             }

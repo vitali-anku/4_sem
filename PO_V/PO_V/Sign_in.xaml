@@ -19,9 +19,9 @@
         <Label x:Name="label1" FontSize="20" Content="Введите пароль" HorizontalAlignment="Left" Margin="235,248,0,0" VerticalAlignment="Top" Height="35" Width="182" FontWeight="Bold"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" TextAlignment="Left"  Height="20" Margin="450,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" />
         <PasswordBox Name="passwordBox1" HorizontalAlignment="Left" Margin="450,254,0,0" Height="21" VerticalAlignment="Top" Width="160" />
-        <Button x:Name="button" FontSize="20" Content="Войти" HorizontalAlignment="Left" Margin="370,340,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="button_Click" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>
+        <Button x:Name="button" IsDefault="True" FontSize="20" Content="Войти" HorizontalAlignment="Left" Margin="370,340,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="button_Click" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>
         <Label x:Name="label2" Foreground="Red" HorizontalAlignment="Left" Margin="73,410,0,0" VerticalAlignment="Top" Width="240" Height="25"/>
-        <Button x:Name="button1" FontSize="15" Content="На главную" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" Height="35" FontStyle="Italic" Background="#FFE3E6F0" Foreground="#FF0D2323" BorderBrush="White" FontWeight="Bold"/>
+        <Button x:Name="button1" IsCancel="True" FontSize="15" Content="На главную" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" Height="35" FontStyle="Italic" Background="#FFE3E6F0" Foreground="#FF0D2323" BorderBrush="White" FontWeight="Bold"/>
         <Label x:Name="loog" FontSize="5" HorizontalAlignment="Left" Margin="370,186,0,0" VerticalAlignment="Top" Height="17" Width="60"/>
         <Label x:Name="paass" FontSize="5" HorizontalAlignment="Left" Margin="370,226,0,0" VerticalAlignment="Top" Height="17" Width="60" />
     </Grid>

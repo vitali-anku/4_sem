@@ -30,7 +30,7 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Day = calendar.SelectedDate.ToString();
-            if (int.Parse(Day.Substring(0, Day.Length - 16)) >= DateTime.Today.Day && Day.Length > 0)
+            if (Day.Length > 0 && int.Parse(Day.Substring(0, Day.Length - 16)) >= DateTime.Today.Day)
             {
                 Day = Day.Substring(0, Day.Length - 13);
                 db rout = new db();

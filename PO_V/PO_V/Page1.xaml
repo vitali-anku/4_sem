@@ -10,7 +10,10 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="D:\kr\3.jpg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFBF1F1"/>
+                <GradientStop Color="#FF8596D3" Offset="0.996"/>
+            </LinearGradientBrush>
         </Grid.Background>
         <Button x:Name="button" FontSize="24" Foreground="#FF0D2323"  Background="#FFC2CEEE" BorderThickness="0"  Content="Вход" Click="buttonClick" HorizontalAlignment="Stretch" Margin="320,330,285,0" VerticalAlignment="Top" RenderTransformOrigin="0.933,0.5" Height="65" FontFamily="News701 BT" FontWeight="Bold" FontStyle="Italic"/>
         <Button x:Name="button1" FontSize="24" Foreground="#FF0D2323" Background="#FFC2CEEE" BorderThickness="0" Content="Регистрация" HorizontalAlignment="Stretch" Margin="320,440,285,0" VerticalAlignment="Top" Height="65" Click="button1_Click" FontWeight="Bold" FontStyle="Italic"/>

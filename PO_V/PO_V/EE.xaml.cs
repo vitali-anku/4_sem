@@ -27,43 +27,30 @@ namespace PO_V
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
             db a = new db();
-            string pass = pass1.Password;
-            string new_pass = pass2.Password;
+            UpdatePass up = new UpdatePass
+            {
+                Password = pass1.Password,
+                NewPassword = pass2.Password
+            };
+            a.A();
             string login = db.Login;
-            SaltedHash password = new SaltedHash(new_pass);
+            SaltedHash password = new SaltedHash(up.Password);
             string salt = password.Salt;
             string hash = password.Hash;
-            if (!string.IsNullOrEmpty(pass1.Password))
+            if (Validate.Valid(up))
             {
-                if (a.Sign_in(login, pass))
+                if (a.Sign_in(login, up.Password))
                 {
-                    pa1.Content = "";
-                    if (!string.IsNullOrEmpty(new_pass))
-                    {
-                        a.UpdatePass(salt, hash);
-                        MessageBox.Show("Пароль изменен");
-                        pa2.Content = "";
-                        pass1.Password = "";
-                        pass2.Password = "";
-                        this.Close();
-                    }
-                    else
-                        pa2.Content = "Введите новый пароль!";
+                    a.UpdatePass(salt, hash);
+                    MessageBox.Show("Пароль изменен");
+                    this.Close();
                 }
                 else
                 {
-
-                    pa1.Content = "Неверный пароль";
-                    pa2.Content = "";
+                    MessageBox.Show("Вы ввели неверный пароль!");
                     pass1.Password = "";
                     pass2.Password = "";
                 }
-            }
-            else
-            {
-                pa2.Content = "";
-                pa1.Content = "Введите пароль";
-                pass2.Password = "";
             }
         }
 
