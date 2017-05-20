@@ -24,21 +24,19 @@ namespace PO_V
         {
             InitializeComponent();
         }
-        private static string Item { get; set; }
+        public static string Item { get; set; }
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (comboBox.SelectedItem != null)
+            Bron1 a = new Bron1
             {
-                Item = comboBox.Text;
+                Item = comboBox.Text
+            };
+            if (Validate.Valid(a))
+            {
+                Item = a.Item;
                 Booking2 next = new Booking2();
                 NavigationService.Navigate(next);
             }
-            else
-                MessageBox.Show("Error!");
-        }
-        public string ReturnItem()
-        {
-            return Item;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

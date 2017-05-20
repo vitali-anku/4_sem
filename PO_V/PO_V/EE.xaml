@@ -16,7 +16,13 @@
             </LinearGradientBrush>
         </Grid.Background>
         <PasswordBox x:Name="pass1" HorizontalAlignment="Left" Height="23" Margin="195,45,0,0" VerticalAlignment="Top" Width="145"/>
-        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="23" Margin="195,90,0,0" VerticalAlignment="Top" Width="145"/>
+        <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="23" Margin="195,90,0,0" VerticalAlignment="Top" Width="145">
+            <PasswordBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Только латинские буквы, цифры, нижнее подчеркивание и тире</TextBlock>
+                </StackPanel>
+            </PasswordBox.ToolTip>
+        </PasswordBox>
         <Label x:Name="label" Content="Введите старый пароль" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="label1" Content="Введите новый пароль" HorizontalAlignment="Left" Margin="43,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="pa1" Foreground="Red" HorizontalAlignment="Left" Margin="320,50,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="-12.9,1.5"/>

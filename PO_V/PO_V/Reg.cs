@@ -29,7 +29,7 @@ namespace PO_V
     class Registr
     {
         [Required(ErrorMessage = "Введите логин")]
-        [RegularExpression(@"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{4,20}")]
+        [RegularExpression(@"^[a-z0-9_-]{3,16}$", ErrorMessage = "Придумайте другой логин")]
         public string Log { get; set; }
 
         [Required(ErrorMessage = "Введите Ф.И.О. пользователя")]
@@ -42,7 +42,7 @@ namespace PO_V
         public string NumberPassport { get; set; }
 
         [Required(ErrorMessage = "Введите пароль")]
-        [RegularExpression(@"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20}", ErrorMessage = "Придумайте другой пароль")]
+        [RegularExpression(@"^[a-zA-Z0-9_-]{6,18$", ErrorMessage = "Придумайте другой пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
@@ -64,7 +64,7 @@ namespace PO_V
     class UpdateLogin
     {
         [Required(ErrorMessage = "Введите логин")]
-
+        [RegularExpression(@"^[a-z0-9_-]{3,16}$", ErrorMessage = "Придумайте другой логин")]
         public string Log { get; set; }
     }
 
@@ -78,13 +78,38 @@ namespace PO_V
 
     class UpdatePass
     {
-        [Required(ErrorMessage = "Введите пароль")]
+        [Required(ErrorMessage = "Введите старый пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Введите новый пароль")]
-        [RegularExpression(@"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20}", ErrorMessage = "Придумайте другой пароль")]
+        [RegularExpression(@"^[a-zA-Z0-9_-]{6,18}$", ErrorMessage = "Придумайте другой пароль")]
         [DataType(DataType.Password)]
         public string NewPassword { get; set; }
+    }
+
+    class RemovePass
+    {
+        [Required(ErrorMessage = "Введите логин")]
+        public string Log { get; set; }
+
+        [Required(ErrorMessage = "Введите пароль")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+
+    class Bron1
+    {
+        [Required(ErrorMessage = "Выберите город")]
+        public string Item { get; set; }
+    }
+
+    class Bron2
+    {
+        [Required(ErrorMessage = "Выберите день")]
+        public string Item { get; set; }
+
+        [Required(ErrorMessage = "Выберите время")]
+        public string Time { get; set; }
     }
 }

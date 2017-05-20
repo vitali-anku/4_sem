@@ -52,8 +52,8 @@ namespace PO_V
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
                                                             "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
-                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where arival_point like 'Минск' and " +
-                                                    "departure_time > CONVERT(VARCHAR(8), DATEADD(dd , 0, getdate()), 4) order by data");
+                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where arival_point like 'Минск' " +
+                                                    "order by data");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {
@@ -78,8 +78,8 @@ namespace PO_V
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
                                                             "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
-                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where departure_point like 'Минск' and " +
-                                                    "departure_time > CONVERT(VARCHAR(8), DATEADD(dd , 0, getdate()), 4) order by data");
+                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where departure_point like 'Минск' " +
+                                                    "order by data");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {

@@ -25,31 +25,35 @@ namespace PO_V
             InitializeComponent();
         }
 
-        private static string Day { get; set; }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Day = calendar.SelectedDate.ToString();
-            if (Day.Length > 0 && int.Parse(Day.Substring(0, Day.Length - 16)) >= DateTime.Today.Day)
+            Bron2 b = new Bron2
             {
-                Day = Day.Substring(0, Day.Length - 13);
-                db rout = new db();
-                Booking1 book = new Booking1();
-                if (rout.Ticket(book.ReturnItem(), Day))
+                Item = calendar.SelectedDate.ToString(),
+                Time = comboBox.Text
+            };
+            string m = b.Item;
+            if (Validate.Valid(b))
+            {
+                if (int.Parse(m.Substring(0, m.Length - 16)) >= DateTime.Today.Day)
                 {
-                    BookingEnd end = new BookingEnd();
-                    NavigationService.Navigate(end);
+                    m = m.Substring(0, m.Length - 13);
+                    db rout = new db();
+                    if (rout.Ticket(Booking1.Item, m, b.Time))
+                    {
+                        BookingEnd end = new BookingEnd();
+                        NavigationService.Navigate(end);
+                    }
+                    else { MessageBox.Show("В этот день автобус не идет"); return; }
                 }
-                else { MessageBox.Show("Пусто"); return; }
+                else
+                {
+                    MessageBox.Show("Вы выбрали прошедший день\nПовторите попытку");
+                }
             }
-            else { MessageBox.Show("Error!"); }
-        }
 
-        public string ReturnDay()
-        {
-            return Day;
         }
-
+        
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();

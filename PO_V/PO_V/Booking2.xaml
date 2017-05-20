@@ -15,8 +15,15 @@
                 <GradientStop Color="#FF8596D3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button1" Content="Назад" FontSize="20" HorizontalAlignment="Left" Margin="180,255,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
-        <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="301,197,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Далее" FontSize="20" HorizontalAlignment="Left" Margin="515,255,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" />
+        <Button x:Name="button1" Content="Назад" FontSize="20" HorizontalAlignment="Left" Margin="280,440,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="215,212,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="445,303,0,0" VerticalAlignment="Top" Width="120" >
+            <TextBlock TextAlignment="Center">08:00</TextBlock>
+            <TextBlock TextAlignment="Center">12:00</TextBlock>
+            <TextBlock TextAlignment="Center">18:00</TextBlock>
+        </ComboBox>
+        <Button x:Name="button" Content="Далее" FontSize="20" HorizontalAlignment="Left" Margin="415,440,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" />
+        <Label x:Name="label" FontSize="20" FontStyle="Italic" Content="Время отправления:" HorizontalAlignment="Left" Margin="415,238,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" FontSize="20" FontStyle="Italic" Content="День:" HorizontalAlignment="Left" Margin="280,170,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

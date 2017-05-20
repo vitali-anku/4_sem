@@ -15,13 +15,25 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label x:Name="label2" Content="Логин" HorizontalAlignment="Left" FontSize="20" Margin="213,156,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="Bold"/>
-        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="20" Margin="414,163,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" />
+        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="20" Margin="414,163,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Только латинские буквы, цифры, нижнее подчеркивание и тире</TextBlock>
+                </StackPanel>
+            </TextBox.ToolTip>
+        </TextBox>
         <Label x:Name="label1" FontSize="20" Content="ФИО" HorizontalAlignment="Left" Margin="213,193,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="Bold"/>
         <TextBox x:Name="Nam" HorizontalAlignment="Left" Height="20" Margin="414,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" />
         <Label x:Name="label4" FontSize="20" Content="Номер паспорта" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="213,230,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="Passp" HorizontalAlignment="Left" Height="20" Margin="414,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" />
         <Label x:Name="label5" FontSize="20" Content="Пароль" HorizontalAlignment="Left" Margin="213,267,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="Bold"/>
-        <PasswordBox Name="pass1" HorizontalAlignment="Left" Margin="414,284,0,0" Height="20" VerticalAlignment="Top" Width="166" />
+        <PasswordBox Name="pass1" HorizontalAlignment="Left" Margin="414,284,0,0" Height="20" VerticalAlignment="Top" Width="166" >
+            <PasswordBox.ToolTip>
+                <StackPanel>
+                    <TextBlock FontSize="10" Foreground="Red">Только латинские буквы, цифры, нижнее подчеркивание и тире</TextBlock>
+                </StackPanel>
+            </PasswordBox.ToolTip>
+        </PasswordBox>
         <Label x:Name="label" Content="Повторите пароль" FontSize="20" HorizontalAlignment="Left" Margin="213,303,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="Bold"/>
         <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="20" Margin="414,320,0,0" VerticalAlignment="Top" Width="166" />
         <Button x:Name="button" IsDefault="True"  FontSize="20" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="280,450,0,0" VerticalAlignment="Top" Width="240" Height="40" RenderTransformOrigin="0.222,0" Click="button_Click" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>

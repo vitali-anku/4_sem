@@ -28,23 +28,27 @@ namespace PO_V
         private void button_Click(object sender, RoutedEventArgs e)
         {
             db re = new db();
-            string pas = textBox.Password;
-            string log = textBox1.Text;
-            pass1.Content = "";
-            if (!string.IsNullOrEmpty(textBox.Password) && !string.IsNullOrEmpty(textBox1.Text))
+
+            RemovePass remove = new RemovePass
             {
-                if (re.Sign_in(log, pas))
+                Log = textBox1.Text,
+                Password = passwordBox1.Password
+            };
+
+            if (Validate.Valid(remove))
+            {
+                if (re.Sign_in(remove.Log, remove.Password))
                 {
                     re.A();
                     re.RemovePass();
+                    db.Login = "";
+                    db.Name = "";
                     MessageBox.Show("Аккаунт удален");
                     this.Close();
                 }
                 else
                     pass1.Content = "Неверные данные";
             }
-            else
-                pass1.Content = "Введите данные";
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)

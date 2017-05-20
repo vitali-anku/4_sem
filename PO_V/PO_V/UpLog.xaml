@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PO_V"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        ShowActivated="False"
         Title="UpLog" Height="300" Width="300">
     <Grid>
         <Grid.Background>
@@ -14,15 +15,14 @@
                 <GradientStop Color="#FF8596D3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="65,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="65,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" >
             <TextBox.ToolTip>
                 <StackPanel>
-                    <TextBlock FontSize="10" Foreground="Red">Поле должно было заполнено</TextBlock>
+                    <TextBlock FontSize="10" Foreground="Red">Только латинские буквы, цифры, нижнее подчеркивание и тире</TextBlock>
                 </StackPanel>
             </TextBox.ToolTip>
         </TextBox>
         <Button x:Name="button" Content="Изменить" HorizontalAlignment="Left" Margin="115,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
         <Button x:Name="button1" Content="Закрыть окно" HorizontalAlignment="Left" Margin="92,180,0,0" VerticalAlignment="Top" Width="118" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
-        <Label x:Name="label" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="92,129,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

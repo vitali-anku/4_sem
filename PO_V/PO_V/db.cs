@@ -192,7 +192,6 @@ namespace PO_V
             string str = string.Format("delete from _user where full_name = @name");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-
                 a.CommandText = "delete from _user where full_name = @name";
                 a.Parameters.AddWithValue("@name", Name);
                 a.ExecuteNonQuery();
@@ -201,15 +200,16 @@ namespace PO_V
             conn.Close();
         }
 
-        public bool Ticket(string arival_point, string data)
+        public bool Ticket(string arival_point, string data, string departure_time)
         {
             conn.Open();
             string str1 = string.Format("select * from Route where arival_point = @arival_point and data = @data");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
-                b.CommandText = "select * from Route where arival_point = @arival_point and data = @data";
+                b.CommandText = "select * from Route where arival_point = @arival_point and data = @data and departure_time = @departure_time";
                 b.Parameters.AddWithValue("@arival_point", arival_point);
                 b.Parameters.AddWithValue("@data", data);
+                b.Parameters.AddWithValue("@departure_time", departure_time);
                 b.ExecuteNonQuery();
 
                 SqlDataReader myReader = null;
@@ -236,8 +236,12 @@ namespace PO_V
             conn.Open();
             string sql = string.Format("insert Into Ticket" +
                             "(number_route, number_user) values(@number_route, @number_user)");
-            string sql1 = string.Format("select number_of_places from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route");
+            string sql1 = string.Format("select * from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route");
             string sql2 = string.Format("Update Bus Set number_of_places = @number_of_places where number_route = @number_route");
+
+            //"create view Number_of_places(места) "+
+            //    "as select number_of_places[места] from Route join Bus on Route.number_bus = Bus.number_bus where number_route = 1 go "+
+            //"update Number_of_places set места = места - 1"
 
             using (SqlCommand myCommand = new SqlCommand(sql1, conn))
             {
