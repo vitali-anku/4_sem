@@ -39,7 +39,8 @@ namespace PO_V
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            Start glavn = new Start();
+            NavigationService.Navigate(glavn);
         }
 
         private void Pribit()
@@ -52,8 +53,7 @@ namespace PO_V
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
                                                             "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
-                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where arival_point like 'Минск' " +
-                                                    "order by data");
+                                       "from Route where arival_point like 'Минск'");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {
@@ -78,8 +78,7 @@ namespace PO_V
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
                                                             "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
-                                       "from Route a inner join Bus b on a.number_bus = b.number_bus where departure_point like 'Минск' " +
-                                                    "order by data");
+                                       "from Route where departure_point like 'Минск'");
 
             using (SqlConnection conn = new SqlConnection(lin))
             {

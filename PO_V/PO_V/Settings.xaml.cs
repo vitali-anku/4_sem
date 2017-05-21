@@ -56,15 +56,15 @@ namespace PO_V
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            RemovPass re = new RemovPass();
-            re.Show();
             upremov.A();
-            this.NavigationService.Refresh();
+            DeletAkk re = new DeletAkk();
+            NavigationService.Navigate(re);
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            Start glavn = new Start();
+            NavigationService.Navigate(glavn);
         }
     }
 }

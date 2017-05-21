@@ -36,12 +36,14 @@ namespace PO_V
                 Item = a.Item;
                 Booking2 next = new Booking2();
                 NavigationService.Navigate(next);
+                MessageBox.Show(Item);
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            Start glavn = new Start();
+            NavigationService.Navigate(glavn);
         }
     }
 }

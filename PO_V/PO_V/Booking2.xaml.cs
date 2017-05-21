@@ -41,20 +41,35 @@ namespace PO_V
                     db rout = new db();
                     if (rout.Ticket(Booking1.Item, m, b.Time))
                     {
-                        BookingEnd end = new BookingEnd();
-                        NavigationService.Navigate(end);
+                        db bron = new db();
+                        if (bron.Bron())
+                        {
+                            MessageBox.Show("Вы забронировали билет");
+                            Booking0 go = new Booking0();
+                            NavigationService.Navigate(go);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Нет свободных мест");
+                        }
                     }
                     else { MessageBox.Show("В этот день автобус не идет"); return; }
                 }
                 else
                 {
-                    MessageBox.Show("Вы выбрали прошедший день\nПовторите попытку");
+                    MessageBox.Show("Выбран неправильны день");
                 }
             }
 
         }
         
         private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Start glavn = new Start();
+            NavigationService.Navigate(glavn);
+        }
+
+        private void button1_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }

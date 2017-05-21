@@ -29,11 +29,12 @@ namespace PO_V
     class Registr
     {
         [Required(ErrorMessage = "Введите логин")]
-        [RegularExpression(@"^[a-z0-9_-]{3,16}$", ErrorMessage = "Придумайте другой логин")]
+        [RegularExpression(@"^[a-z0-9_-]{3,}$", ErrorMessage = "Придумайте другой логин")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Недопустимая длина Ф.И.О.")]
         public string Log { get; set; }
 
         [Required(ErrorMessage = "Введите Ф.И.О. пользователя")]
-        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3,}", ErrorMessage = "Не верно введен ФИО")]
+        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3,254}", ErrorMessage = "Не верно введен ФИО")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Недопустимая длина Ф.И.О.")]
         public string FullName { get; set; }
 
@@ -42,7 +43,7 @@ namespace PO_V
         public string NumberPassport { get; set; }
 
         [Required(ErrorMessage = "Введите пароль")]
-        [RegularExpression(@"^[a-zA-Z0-9_-]{6,18$", ErrorMessage = "Придумайте другой пароль")]
+        [RegularExpression(@"^[a-zA-Z0-9_-]{6,18}$", ErrorMessage = "Придумайте другой пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
@@ -64,7 +65,7 @@ namespace PO_V
     class UpdateLogin
     {
         [Required(ErrorMessage = "Введите логин")]
-        [RegularExpression(@"^[a-z0-9_-]{3,16}$", ErrorMessage = "Придумайте другой логин")]
+        [RegularExpression(@"^[a-z0-9_-]{3,254}$", ErrorMessage = "Придумайте другой логин")]
         public string Log { get; set; }
     }
 
@@ -90,9 +91,6 @@ namespace PO_V
 
     class RemovePass
     {
-        [Required(ErrorMessage = "Введите логин")]
-        public string Log { get; set; }
-
         [Required(ErrorMessage = "Введите пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

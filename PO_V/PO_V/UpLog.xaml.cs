@@ -34,10 +34,14 @@ namespace PO_V
 
             if (Validate.Valid(up))
             {
-                a.A();
-                a.UpdateLog(up.Log);
-                MessageBox.Show("Логин изменен!");
-                this.Close();
+                if (a.Vald(up.Log))
+                {
+                    a.A();
+                    a.UpdateLog(up.Log);
+                    MessageBox.Show("Логин изменен!");
+                    this.Close();
+                }
+                else { MessageBox.Show("Пользователь с таким логином существует"); }
             }
         }
 

@@ -19,7 +19,7 @@
         <Button x:Name="button1" Content="Прибытие" FontSize="15" HorizontalAlignment="Left" Margin="45,360,0,0" VerticalAlignment="Top" Width="140" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" Height="30"/>
         <DataGrid x:Name="dataGrid"  RowHeaderWidth="0" BorderThickness="0"  IsReadOnly="True" GridLinesVisibility="None"  Background="White" ColumnWidth="Auto"
             RowHeight="25" FontFamily="Yu Gothic UI Semilight" FontSize="15" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top"
-            Height="525" Width="405" Opacity="1" />
-        <Button x:Name="button2" Content="Назад" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="button2_Click" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+            Height="525" Width="Auto" Opacity="1" />
+        <Button x:Name="button2" Content="Главное меню" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Height="25" Click="button2_Click" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

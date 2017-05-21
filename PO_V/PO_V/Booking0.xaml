@@ -17,7 +17,7 @@
         </Grid.Background>
         <DataGrid x:Name="dataGrid"  RowHeaderWidth="0" BorderThickness="0"  IsReadOnly="True" GridLinesVisibility="None"  Background="White" ColumnWidth="Auto"
             RowHeight="25" FontFamily="Yu Gothic UI Semilight" FontSize="15" HorizontalAlignment="Left" Margin="85,85,0,0" VerticalAlignment="Top"
-            Height="470" Width="630" Opacity="1" />
-        <Button x:Name="button" Content="Назад" FontSize="15" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="button_Click" BorderBrush="White" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+            Height="395" Width="Auto" Opacity="1" />
+        <Button x:Name="button" IsCancel="True" Content="Главное меню" FontSize="15" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="Auto" Height="25" Click="button_Click" BorderBrush="White" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

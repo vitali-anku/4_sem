@@ -15,8 +15,7 @@
                 <GradientStop Color="#FF8596D3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button1" FontSize="20" Content="Назад" HorizontalAlignment="Left" Margin="205,290,0,0" VerticalAlignment="Top" Width="90" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="button" FontSize="20" Content="Далее" HorizontalAlignment="Left" Margin="510,290,0,0" VerticalAlignment="Top" Width="95" Click="button_Click" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button" IsDefault="True" FontSize="20" Content="Далее" HorizontalAlignment="Left" Margin="510,290,0,0" VerticalAlignment="Top" Width="95" Click="button_Click" Foreground="#FF0D2323" BorderBrush="#FFCBC7C7" Background="#FFC2CEEE" FontWeight="Bold" FontStyle="Italic"/>
         <Label x:Name="label" FontSize="20" Content="Пункт прибытия" HorizontalAlignment="Left" Margin="320,230,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0A0A0A" FontWeight="Bold"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="350,290,0,0" VerticalAlignment="Top" Width="120" >
             <TextBlock>Витебск</TextBlock>
@@ -25,5 +24,6 @@
             <TextBlock>Гомель</TextBlock>
             <TextBlock>Могилёв</TextBlock>
         </ComboBox>
+        <Button x:Name="button1_Copy" IsCancel="True" Content="Главное меню" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

@@ -81,8 +81,8 @@
     <Compile Include="Booking2.xaml.cs">
       <DependentUpon>Booking2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookingEnd.xaml.cs">
-      <DependentUpon>BookingEnd.xaml</DependentUpon>
+    <Compile Include="DeletAkk.xaml.cs">
+      <DependentUpon>DeletAkk.xaml</DependentUpon>
     </Compile>
     <Compile Include="EE.xaml.cs">
       <DependentUpon>EE.xaml</DependentUpon>
@@ -91,9 +91,6 @@
       <DependentUpon>Prib.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reg.cs" />
-    <Compile Include="RemovPass.xaml.cs">
-      <DependentUpon>RemovPass.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SaltedHash.cs" />
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
@@ -125,7 +122,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BookingEnd.xaml">
+    <Page Include="DeletAkk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,10 +148,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Prib.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RemovPass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

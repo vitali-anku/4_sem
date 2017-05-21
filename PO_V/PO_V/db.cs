@@ -18,11 +18,11 @@ namespace PO_V
 
         public static string Name { get; set; }
         public static string Login { get; set; }
-        public string Salt { get; set; }
+        public static string Salt { get; set; }
         public static string Number_passport { get; set; }
-        public string Hash { get; set; }
+        public static string Hash { get; set; }
         public static string Number_route { get; set; }
-        public static string Number_user { get; set; }
+        public static int Number_user { get; set; }
         public static int Number_of_places { get; set; }
         public static int Number_bus { get; set; }
 
@@ -32,7 +32,7 @@ namespace PO_V
         {
             conn.Open();
 
-            string str = string.Format("Select * from _user where login = @login");
+            string str = string.Format("Select * from yuzer where login = @login");
 
             using (SqlCommand myCommand = new SqlCommand(str, conn))
             {
@@ -54,7 +54,7 @@ namespace PO_V
         public void Reg(string login, string ful_name, string salt, string number_passport, string hash)
         {
             conn.Open();
-            string sql = string.Format("insert Into _user" +
+            string sql = string.Format("insert Into yuzer" +
                             "(login, full_name, salt, number_passprort, hash) values(@login, @ful_name, @salt, @number_passport, @hash)");
 
             using (SqlCommand myCommand = new SqlCommand(sql, conn))
@@ -75,11 +75,11 @@ namespace PO_V
 
             try
             {
-                string zapros = string.Format("Select * from _user where login = @login");
+                string zapros = string.Format("Select * from yuzer where login = @login");
 
                 using (SqlCommand myCommand = new SqlCommand(zapros, conn))
                 {
-                    myCommand.CommandText = "Select * from _user where login = @login";
+                    myCommand.CommandText = "Select * from yuzer where login = @login";
                     myCommand.Parameters.AddWithValue("@login", login);
                     myCommand.ExecuteNonQuery();
                     SqlDataReader myReader = myCommand.ExecuteReader();
@@ -91,7 +91,7 @@ namespace PO_V
                             Salt = myReader["salt"].ToString();
                             Hash = myReader["hash"].ToString();
                             Number_passport = myReader["number_passprort"].ToString();
-                            Number_user = myReader["number_user"].ToString();
+                            Number_user = (int)myReader["number_user"];
                         }
                         if (SaltedHash.Verify(Hash, pass, Salt))
                         {
@@ -121,11 +121,11 @@ namespace PO_V
         public void A()
         {
             conn.Open();
-            string str1 = string.Format("select * from _user where login = @login");
+            string str1 = string.Format("select * from yuzer where number_passprort = @number_passprort");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
-                b.CommandText = "select * from _user where login = @login";
-                b.Parameters.AddWithValue("@login", Login);
+                b.CommandText = "select * from yuzer where number_passprort = @number_passprort";
+                b.Parameters.AddWithValue("@number_passprort", Number_passport);
                 b.ExecuteNonQuery();
                 SqlDataReader myReader = null;
                 myReader = b.ExecuteReader();
@@ -133,7 +133,9 @@ namespace PO_V
                 {
                     Login = myReader["login"].ToString();
                     Name = myReader["full_name"].ToString();
-                    Number_user = myReader["number_user"].ToString();
+                    Number_user = (int)myReader["number_user"];
+                    Salt = myReader["salt"].ToString();
+                    Hash = myReader["hash"].ToString();
                 }
             }
             conn.Close();
@@ -142,10 +144,10 @@ namespace PO_V
         public void UpdateLog(string login)
         {
             conn.Open();
-            string str = string.Format("Update _user Set login=@login Where full_name = @name");
+            string str = string.Format("Update yuzer Set login=@login Where full_name = @name");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-                a.CommandText = "Update _user Set login=@login Where full_name = @name";
+                a.CommandText = "Update yuzer Set login=@login Where full_name = @name";
                 a.Parameters.AddWithValue("@login", login);
                 a.Parameters.AddWithValue("@name", Name);
                 a.ExecuteNonQuery();
@@ -156,10 +158,10 @@ namespace PO_V
         public void UpdateName(string name)
         {
             conn.Open();
-            string str = string.Format("Update _user Set full_name = @name Where login = @login");
+            string str = string.Format("Update yuzer Set full_name = @name Where login = @login");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-                a.CommandText = "Update _user Set full_name = @name Where login = @login";
+                a.CommandText = "Update yuzer Set full_name = @name Where login = @login";
                 a.Parameters.AddWithValue("@login", Login);
                 a.Parameters.AddWithValue("@name", name);
                 a.ExecuteNonQuery();
@@ -171,11 +173,11 @@ namespace PO_V
         {
             conn.Open();
 
-            string str = string.Format("Update _user Set salt = @salt, hash = @hash Where login = @login");
+            string str = string.Format("Update yuzer Set salt = @salt, hash = @hash Where login = @login");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
 
-                a.CommandText = "Update _user Set salt = @salt, hash = @hash Where login = @login";
+                a.CommandText = "Update yuzer Set salt = @salt, hash = @hash Where login = @login";
                 a.Parameters.AddWithValue("@salt", salt);
                 a.Parameters.AddWithValue("@hash", hash);
                 a.Parameters.AddWithValue("@login", Login);
@@ -189,21 +191,33 @@ namespace PO_V
         {
             conn.Open();
 
-            string str = string.Format("delete from _user where full_name = @name");
+            string str = string.Format("delete from yuzer where login = @login");
             using (SqlCommand a = new SqlCommand(str, conn))
             {
-                a.CommandText = "delete from _user where full_name = @name";
-                a.Parameters.AddWithValue("@name", Name);
+                a.CommandText = "delete from yuzer where login = @login";
+                a.Parameters.AddWithValue("@login", Login);
                 a.ExecuteNonQuery();
             }
-
             conn.Close();
         }
 
+        public void RemoveTicket()
+        {
+            conn.Open();
+            string str = string.Format("delete from Ticket where number_user = @number_user");
+            using (SqlCommand a = new SqlCommand(str, conn))
+            {
+                a.CommandText = "delete from Ticket where number_user = @number_user";
+                a.Parameters.AddWithValue("@number_user", Number_user);
+                a.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
+        //number_route
         public bool Ticket(string arival_point, string data, string departure_time)
         {
             conn.Open();
-            string str1 = string.Format("select * from Route where arival_point = @arival_point and data = @data");
+            string str1 = string.Format("select * from Route where arival_point = @arival_point and data = @data and departure_time = @departure_time");
             using (SqlCommand b = new SqlCommand(str1, conn))
             {
                 b.CommandText = "select * from Route where arival_point = @arival_point and data = @data and departure_time = @departure_time";
@@ -236,23 +250,19 @@ namespace PO_V
             conn.Open();
             string sql = string.Format("insert Into Ticket" +
                             "(number_route, number_user) values(@number_route, @number_user)");
-            string sql1 = string.Format("select * from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route");
-            string sql2 = string.Format("Update Bus Set number_of_places = @number_of_places where number_route = @number_route");
-
-            //"create view Number_of_places(места) "+
-            //    "as select number_of_places[места] from Route join Bus on Route.number_bus = Bus.number_bus where number_route = 1 go "+
-            //"update Number_of_places set места = места - 1"
+            string sql1 = string.Format("select * from Route where number_route = @number_route");
+            string sql2 = string.Format("Update Route Set number_of_places = @number_of_places where number_route = @number_route");
 
             using (SqlCommand myCommand = new SqlCommand(sql1, conn))
             {
-                myCommand.CommandText = "select * from Route a join Bus b on a.number_bus=b.number_bus where number_route = @number_route";
+                myCommand.CommandText = "select * from Route where number_route = @number_route";
                 myCommand.Parameters.AddWithValue("@number_route", Number_route);
                 myCommand.ExecuteNonQuery();
                 SqlDataReader myReader = myCommand.ExecuteReader();
                 while (myReader.Read())
                 {
                     Number_of_places = (int)myReader["number_of_places"];
-                    Number_bus = (int)myReader["number_bus"];
+                    //Number_bus = (int)myReader["number_bus"];
                 }
                 myReader.Close();
                 if (Number_of_places > 0)
@@ -265,8 +275,8 @@ namespace PO_V
                     }
                     using (SqlCommand bronir = new SqlCommand(sql2, conn))
                     {
-                        bronir.CommandText = "Update Bus Set number_of_places = @number_of_places where number_bus = @number_bus";
-                        bronir.Parameters.AddWithValue("@number_bus", Number_bus);
+                        bronir.CommandText = "Update Route Set number_of_places = @number_of_places where number_route = @number_route";
+                        bronir.Parameters.AddWithValue("@number_route", Number_route);
                         bronir.Parameters.AddWithValue("@number_of_places", Number_of_places-1);
                         bronir.ExecuteNonQuery();
                     }

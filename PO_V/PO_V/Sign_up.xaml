@@ -37,7 +37,7 @@
         <Label x:Name="label" Content="Повторите пароль" FontSize="20" HorizontalAlignment="Left" Margin="213,303,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="Bold"/>
         <PasswordBox x:Name="pass2" HorizontalAlignment="Left" Height="20" Margin="414,320,0,0" VerticalAlignment="Top" Width="166" />
         <Button x:Name="button" IsDefault="True"  FontSize="20" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="280,450,0,0" VerticalAlignment="Top" Width="240" Height="40" RenderTransformOrigin="0.222,0" Click="button_Click" Background="#FFC2CEEE" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FFCBC7C7"/>
-        <Button x:Name="button1" IsCancel="True"  FontSize="15" Content="На главную" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.387,-2.25" Height="35" Click="button1_Click" Foreground="#FF0D2323" Background="#FFE3E6F0" FontWeight="Bold" FontStyle="Italic" BorderBrush="White"/>
+        <Button x:Name="button1" IsCancel="True"  FontSize="15" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.387,-2.25" Height="35" Click="button1_Click" Foreground="#FF0D2323" Background="#FFE3E6F0" FontWeight="Bold" FontStyle="Italic" BorderBrush="White"/>
         <Label x:Name="label7" Foreground="Red" Height="Auto" Width="Auto" HorizontalAlignment="Left" Margin="585,190,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label8" Foreground="Red" Height="Auto" Width="Auto" HorizontalAlignment="Left" Margin="570,190,0,0" VerticalAlignment="Top"/>
     </Grid>

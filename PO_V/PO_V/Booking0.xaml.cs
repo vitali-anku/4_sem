@@ -35,14 +35,16 @@ namespace PO_V
                          Initial Catalog=Kursach;
                          Integrated Security=True";
 
-            string arr = string.Format("select c.departure_point[Отправление], c.arival_point[Прибытие], c.data[Дата], c.number_bus[Номер автобуса]," +
+            string arr = string.Format("select c.departure_point[Отправление], c.arival_point[Прибытие], c.data[Дата], " +
                                                 "CONVERT(VARCHAR(5), c.departure_time, 108)[Время_отправления], c.price[Цена], b.full_name[ФИО], b.number_passprort[Паспорт]" +
-                                       "from Ticket a inner join _user b on a.number_user = b.number_user " +
-                                                     "inner join Route c on a.number_route = c.number_route");
+                                       "from Ticket a inner join yuzer b on a.number_user = b.number_user " +
+                                                     "inner join Route c on a.number_route = c.number_route where login = @login");
             using (SqlConnection conn = new SqlConnection(lin))
             {
                 conn.Open();
+
                 SqlCommand cmd = new SqlCommand(arr, conn);
+                cmd.Parameters.AddWithValue("@login", db.Login);
                 using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
@@ -56,7 +58,8 @@ namespace PO_V
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            Start home = new Start();
+            NavigationService.Navigate(home);
         }
     }
 }

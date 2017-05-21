@@ -16,44 +16,37 @@ using System.Windows.Shapes;
 namespace PO_V
 {
     /// <summary>
-    /// Логика взаимодействия для RemovPass.xaml
+    /// Логика взаимодействия для DeletAkk.xaml
     /// </summary>
-    public partial class RemovPass : Window
+    public partial class DeletAkk : Page
     {
-        public RemovPass()
+        public DeletAkk()
         {
             InitializeComponent();
         }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             db re = new db();
 
             RemovePass remove = new RemovePass
             {
-                Log = textBox1.Text,
                 Password = passwordBox1.Password
             };
 
             if (Validate.Valid(remove))
             {
-                if (re.Sign_in(remove.Log, remove.Password))
+                if (re.Sign_in(db.Login, remove.Password))
                 {
                     re.A();
+                    re.RemoveTicket();
                     re.RemovePass();
                     db.Login = "";
                     db.Name = "";
                     MessageBox.Show("Аккаунт удален");
-                    this.Close();
                 }
                 else
                     pass1.Content = "Неверные данные";
             }
-        }
-
-        private void exit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
