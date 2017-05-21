@@ -29,12 +29,16 @@ namespace PO_V
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             UpName nam = new UpName();
             nam.Show();
         }
 
         private void Log_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             UpLog log = new UpLog();
             log.Show();
             this.NavigationService.Refresh();
@@ -42,6 +46,8 @@ namespace PO_V
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             EE nam = new EE();
             nam.Show();
             this.NavigationService.Refresh();
@@ -49,6 +55,8 @@ namespace PO_V
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             upremov.A();
             Logi.Content = "Логин: " + db.Login;
             Name.Content = "ФИО: " + db.Name;
@@ -56,6 +64,8 @@ namespace PO_V
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             upremov.A();
             DeletAkk re = new DeletAkk();
             NavigationService.Navigate(re);
@@ -63,6 +73,8 @@ namespace PO_V
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
+            Logi.Content = "";
+            Name.Content = "";
             Start glavn = new Start();
             NavigationService.Navigate(glavn);
         }

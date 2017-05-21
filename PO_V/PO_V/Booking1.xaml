@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PO_V"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="Booking1">
+      Title="Бронирование">
 
     <Grid>
         <Grid.Background>

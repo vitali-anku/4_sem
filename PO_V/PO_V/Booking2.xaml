@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PO_V"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="Booking2">
+      Title="Бронирование">
 
     <Grid>
         <Grid.Background>
@@ -26,5 +26,8 @@
         <Label x:Name="label" FontSize="20" FontStyle="Italic" Content="Время отправления:" HorizontalAlignment="Left" Margin="415,238,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" FontSize="20" FontStyle="Italic" Content="День:" HorizontalAlignment="Left" Margin="280,170,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button1_Copy" Content="Главное меню" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="Auto" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="White" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <DataGrid x:Name="dataGrid"  RowHeaderWidth="0" BorderThickness="0"  IsReadOnly="True" GridLinesVisibility="None"  Background="White" ColumnWidth="Auto"
+            RowHeight="25" FontFamily="Yu Gothic UI Semilight" FontSize="15" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top"
+            Height="155" Width="Auto" Opacity="1" />
     </Grid>
 </Page>

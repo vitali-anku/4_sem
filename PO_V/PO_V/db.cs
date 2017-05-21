@@ -148,8 +148,8 @@ namespace PO_V
             using (SqlCommand a = new SqlCommand(str, conn))
             {
                 a.CommandText = "Update yuzer Set login=@login Where full_name = @name";
-                a.Parameters.AddWithValue("@login", login);
                 a.Parameters.AddWithValue("@name", Name);
+                a.Parameters.AddWithValue("@login", login);
                 a.ExecuteNonQuery();
             }
             conn.Close();

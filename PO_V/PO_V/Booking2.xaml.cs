@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,8 @@ namespace PO_V
         public Booking2()
         {
             InitializeComponent();
+            string a = Booking1.Item;
+            Route(a);
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -72,6 +76,33 @@ namespace PO_V
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void Route(string y)
+        {
+            string lin = @"Data Source=VITALI\SQLSERVER;
+                         Initial Catalog=Kursach;
+                         Integrated Security=True";
+            string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
+                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
+                                                            "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
+                                       "from Route where departure_point like 'Минск' and arival_point like @arival_point");
+
+            using (SqlConnection conn = new SqlConnection(lin))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(arr, conn);
+                cmd.Parameters.AddWithValue("@arival_point", y);
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+
+                    sda.Fill(dt);
+
+                    dataGrid.ItemsSource = dt.DefaultView;
+                }
+                conn.Close();
+            }
         }
     }
 }

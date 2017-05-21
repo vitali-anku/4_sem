@@ -51,7 +51,6 @@ namespace PO_V
                     if (re.Vald(reg.Log))
                     {
                         re.Reg(reg.Log, reg.FullName, sal, reg.NumberPassport, hash);
-                        MessageBox.Show("Благодарим вас за регистрацию.\nВойдите под своим логином и паролем.");
                         Sign_in ni = new Sign_in();
                         NavigationService.Navigate(ni);
                     }

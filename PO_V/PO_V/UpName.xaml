@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PO_V"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="UpName" Height="300" Width="289">
+        Title="Изменение ФИО" Height="300" Width="289">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

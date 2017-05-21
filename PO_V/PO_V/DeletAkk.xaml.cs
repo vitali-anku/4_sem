@@ -43,6 +43,8 @@ namespace PO_V
                     db.Login = "";
                     db.Name = "";
                     MessageBox.Show("Аккаунт удален");
+                    Page1 start = new Page1();
+                    NavigationService.Navigate(start);
                 }
                 else
                     pass1.Content = "Неверные данные";
