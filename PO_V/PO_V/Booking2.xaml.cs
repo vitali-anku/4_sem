@@ -57,7 +57,7 @@ namespace PO_V
                 }
                 else
                 {
-                    MessageBox.Show("Выбран неправильны день");
+                    MessageBox.Show("Выбран неправильный день");
                 }
             }
 

@@ -34,7 +34,7 @@ namespace PO_V
         public string Log { get; set; }
 
         [Required(ErrorMessage = "Введите Ф.И.О. пользователя")]
-        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3,254}", ErrorMessage = "Не верно введен ФИО")]
+        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3}", ErrorMessage = "Не верно введен ФИО")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Недопустимая длина Ф.И.О.")]
         public string FullName { get; set; }
 
