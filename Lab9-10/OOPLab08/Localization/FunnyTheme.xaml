@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:OOPLab08.Localization">
+    <Style TargetType="ToolBar" x:Key="ModniyStyle">
+        <Setter Property="Background" Value="#FF188F8F"/>
+    </Style>
+    <Style TargetType="Menu" x:Key="MenuStyle">
+        <Setter Property="Background" Value="Cyan"/>
+    </Style>
+
+</ResourceDictionary>

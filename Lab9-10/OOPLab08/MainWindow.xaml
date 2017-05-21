@@ -1,0 +1,144 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOPLab08.Commands"
+        xmlns:local1="clr-namespace:OOPLab08" x:Class="OOPLab08.MainWindow"
+        mc:Ignorable="d"
+        Title="OOPLab08: WPF-TextEditor" Height="auto" Width="1000" Icon="Resources/Icon.png"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Localization/RussianLanguage.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style TargetType="{x:Type MenuItem}">
+                <Setter Property="FontWeight" Value="DemiBold"/>
+            </Style>
+
+
+            <Style TargetType="{x:Type Button}" x:Key="DataTrigger">
+                <Setter Property="Content" Value="Button"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementName=checkBox1, Path=IsChecked}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="NewCommand_Executed"/>
+        <CommandBinding Command="Open" Executed="OpenCommand_Executed"/>
+        <CommandBinding Command="Save" Executed="SaveCommand_Executed"/>
+        <CommandBinding Command="SaveAs" Executed="SaveAsCommand_Executed"/>
+        <CommandBinding Command="Close" Executed="CloseCommand_Executed"/>
+        <CommandBinding Command="ToggleBold"/>
+        <CommandBinding Command="ToggleItalic"/>
+        <CommandBinding Command="ToggleUnderline"/>
+        <CommandBinding Command="local:WindowCommands.Exit" Executed="ExitCommand_Executed"/>
+        <CommandBinding Command="Copy"/>
+        <CommandBinding Command="Paste"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" VerticalAlignment="Top" x:Name="Menu" Style="{DynamicResource MenuStyle}">
+            <MenuItem Header="{DynamicResource Key_File}">
+                <MenuItem Command="New" Header="{DynamicResource Key_New}"/>
+                <MenuItem Header="{DynamicResource Key_Recent_Documents}" >
+                    <ListView  ItemsSource="{Binding OpenedDocuments}" SelectedItem="{Binding SelectedItem}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown"  Handler="OpenRecentOpenedWindow" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </MenuItem>
+                <MenuItem Command="Open" Header="{DynamicResource Key_Open}"/>
+                <MenuItem Command="Save" Header="{DynamicResource Key_Save}"/>
+                <MenuItem Command="SaveAs" Header="{DynamicResource Key_SaveAs}"/>
+                <MenuItem Command="Close" Header="{DynamicResource Key_Close}"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource Key_Exit}" Command="local:WindowCommands.Exit"/>
+                <Separator/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Key_Edit}">
+                <MenuItem Command="Copy" Header="{DynamicResource Key_Copy}"/>
+                <MenuItem Command="Paste" Header="{DynamicResource Key_Paste}"/>
+                <MenuItem Command="Cut" Header="{DynamicResource Key_Cut}"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Key_Settings}">
+                <MenuItem Header="{DynamicResource Key_Language}">
+                    <MenuItem Header="Русский" Command="local:WindowCommands.ChangeLanguage">
+                        <MenuItem.CommandBindings>
+                            <CommandBinding Command="local:WindowCommands.ChangeLanguage" Executed="ChangeLanguageCommand_Executed"/>
+                        </MenuItem.CommandBindings>
+                    </MenuItem>
+                    <MenuItem Header="English" Command="local:WindowCommands.ChangeLanguage">
+                        <MenuItem.CommandBindings>
+                            <CommandBinding Command="local:WindowCommands.ChangeLanguage" Executed="ChangeLanguageCommand_Executed"/>
+                        </MenuItem.CommandBindings>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Тема">
+                <MenuItem Header="Светлая" Click="ThemeFunny"/>
+                <MenuItem Header="Темнее" Click="ThemeGrey"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="Затриггерим" Style="{StaticResource ButtonTemplate}" Margin="5" Width="100"/>
+            <Button Content="Trigger1" Style="{StaticResource MultyTriggerButton}" Margin="5"/>
+            <Button Width="15" Height="20" Content="Тригер 2" Style="{StaticResource EventTrigger}" Margin="5"/>
+            <Button Content="Trigger3" Style="{StaticResource DataTrigger}" Margin="5"/>
+            <CheckBox x:Name="checkBox1" Content="Trigger4" Margin="0,13,0,10" />
+        </StackPanel>
+        <ToolBar Grid.Row="2"  x:Name="ToolBar" Style="{DynamicResource ModniyStyle}">
+            <ToggleButton Command="Open" x:Name="OpenFileToggleButton">
+                <Image Source="Resources/open.ico"/>
+            </ToggleButton>
+            <ToggleButton Command="Save" x:Name="SaveFileToggleButton">
+                <Image Source="Resources/save.png"/>
+            </ToggleButton>
+            <Separator/>
+            <ToggleButton Command="ToggleBold" x:Name="BoldTextToggleButton">
+                <Image Source="Resources/bold.png"/>
+            </ToggleButton>
+            <ToggleButton Command="ToggleItalic" x:Name="ItalicTextTogglebutton">
+                <Image Source="Resources/Italic.png"/>
+            </ToggleButton>
+            <ToggleButton Command="ToggleUnderline">
+                <Image Source="Resources/underline.png"/>
+            </ToggleButton>
+            <Separator/>
+            <ToggleButton>
+                <ComboBox SelectionChanged="FontComboBox_SelectionChanged" Text="{DynamicResource Key_ChooseFont}" x:Name="FontComboBox" IsEditable="True" IsReadOnly="True" Width="130">
+                    <ComboBoxItem x:Name="TimesNewRomanComboBoxItem" Content="Times New Roman"/>
+                    <ComboBoxItem x:Name="ArialComboBoxItem" Content="Arial"/>
+                    <ComboBoxItem x:Name="CalibriComboBoxItem" Content="Tahoma"/>
+                    <ComboBoxItem  Content="Calibri"/>
+                </ComboBox>
+            </ToggleButton>
+            <Separator/>
+            <ToggleButton>
+                <Slider x:Name="Scaling" Width="200" Value="0" Minimum="0" Maximum="100" SelectionStart="0" IsSelectionRangeEnabled="True" ValueChanged="Scaling_ValueChanged"/>
+            </ToggleButton>
+            <Label Height="30" Width="30" Content="{Binding Value, ElementName=Scaling}" HorizontalAlignment="Right"/>
+        </ToolBar>
+        <TabControl Grid.Row="3" x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged"/>
+        <StatusBar Grid.Row="4" x:Name="Status" Background="White">
+            <StatusBarItem Content="Слов:"/>
+            <StatusBarItem x:Name="NumOfWords"/>
+            <StatusBarItem Content="Символов:"/>
+            <StatusBarItem x:Name="NumOfSymbols"/>
+        </StatusBar>
+    </Grid>
+</Window>

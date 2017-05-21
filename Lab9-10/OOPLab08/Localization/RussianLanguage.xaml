@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:OOPLab08.Localization"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <s:String x:Key="Key_File">Файл</s:String>
+    <s:String x:Key="Key_New">Новый</s:String>
+    <s:String x:Key="Key_Recent_Documents">Недавно открытые</s:String>
+    <s:String x:Key="Key_Open">Открыть</s:String>
+    <s:String x:Key="Key_Save">Сохранить</s:String>
+    <s:String x:Key="Key_SaveAs">Сохранить как</s:String>
+    <s:String x:Key="Key_Close">Закрыть</s:String>
+    <s:String x:Key="Key_Exit">Выход</s:String>
+
+    <s:String x:Key="Key_Edit">Правка</s:String>
+    <s:String x:Key="Key_Copy">Копировать</s:String>
+    <s:String x:Key="Key_Paste">Вставить</s:String>
+    <s:String x:Key="Key_Cut">Вырезать</s:String>
+
+    <s:String x:Key="Key_Settings">Настройки</s:String>
+    <s:String x:Key="Key_Language">Язык</s:String>
+
+    <s:String x:Key="Key_ChooseFont">Выбрать шрифт</s:String>
+
+    <s:String x:Key="Key_NewFileName">Новый</s:String>
+</ResourceDictionary>
