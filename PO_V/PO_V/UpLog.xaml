@@ -22,7 +22,8 @@
                 </StackPanel>
             </TextBox.ToolTip>
         </TextBox>
+        <Label x:Name="label" Content="Введите новый логин" HorizontalAlignment="Left" Margin="70,39,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold"/>
         <Button x:Name="button" IsDefault="True" Content="Изменить" HorizontalAlignment="Left" Margin="115,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="button1" Content="Закрыть окно" IsCancel="True" HorizontalAlignment="Left" Margin="92,180,0,0" VerticalAlignment="Top" Width="118" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="button1" Content="Закрыть" IsCancel="True" HorizontalAlignment="Left" Margin="115,180,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Window>

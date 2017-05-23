@@ -18,7 +18,7 @@
         <Button x:Name="button1" Content="Назад" FontSize="20" HorizontalAlignment="Left" Margin="280,440,0,0" VerticalAlignment="Top" Width="75" Background="#FFC2CEEE" BorderBrush="#FFCBC7C7" Foreground="#FF0D2323" FontWeight="Bold" FontStyle="Italic" Click="button1_Click_1"/>
         <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="215,212,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="445,303,0,0" VerticalAlignment="Top" Width="120" >
-            <TextBlock TextAlignment="Center">08:00</TextBlock>
+            <TextBlock TextAlignment="Center">10:00</TextBlock>
             <TextBlock TextAlignment="Center">12:00</TextBlock>
             <TextBlock TextAlignment="Center">18:00</TextBlock>
         </ComboBox>

@@ -51,7 +51,7 @@ namespace PO_V
                          Integrated Security=True";
 
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
-                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
+                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Отправление], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
                                        "from Route where arival_point like 'Минск'");
 
@@ -62,7 +62,6 @@ namespace PO_V
                 using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
-
                     sda.Fill(dt);
                     dataGrid.ItemsSource = dt.DefaultView;
                 }
@@ -76,7 +75,7 @@ namespace PO_V
                          Initial Catalog=Kursach;
                          Integrated Security=True";
             string arr = string.Format("select departure_point[Отправление], arival_point[Прибытие], data[Дата]," +
-                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Departure], " +
+                                                            "CONVERT(VARCHAR(5), departure_time, 108)[Отправленние], " +
                                                             "CONVERT(VARCHAR(5), Travel_time , 108)[Путь], number_of_places[Места]" +
                                        "from Route where departure_point like 'Минск'");
 

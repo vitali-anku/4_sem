@@ -47,6 +47,7 @@ namespace PO_V
                     NavigationService.Navigate(start);
                 }
                 else
+                    passwordBox1.Password = "";
                     pass1.Content = "Неверные данные";
             }
         }

@@ -27,7 +27,7 @@ namespace PO_V
     }
 
     class Registr
-    {
+    { 
         [Required(ErrorMessage = "Введите логин")]
         [RegularExpression(@"^[a-z0-9_-]{3,}$", ErrorMessage = "Придумайте другой логин")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Недопустимая длина Ф.И.О.")]
@@ -72,7 +72,7 @@ namespace PO_V
     class UpdateName
     {
         [Required(ErrorMessage = "Введите Ф.И.О. пользователя")]
-        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3,}", ErrorMessage = "Не верно введен ФИО")]
+        [RegularExpression(@"([А-ЯЁ][а-яё]+[\-\s]?){3}", ErrorMessage = "Не верно введен ФИО")]
         [StringLength(255, MinimumLength = 3, ErrorMessage = "Недопустимая длина Ф.И.О.")]
         public string FullName { get; set; }
     }
